@@ -4,7 +4,7 @@
 
   <body class="font-sans font-normal leading-normal text-gray-800 bg-white flex flex-col min-h-screen ">
 
-    <header>
+    <header class="">
       <%= render "shared/flash_notice" %>
       <%= render "shared/navbar" %>
     </header>
@@ -12,5 +12,12 @@
     <main class="flex-grow">
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
+
+    <footer>
+      <%= render "shared/footer" %>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+
   </body>
 </html>

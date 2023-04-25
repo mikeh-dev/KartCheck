@@ -10,7 +10,7 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -66,13 +66,19 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
 gem "devise", "~> 4.8", ">= 4.8.1"
 gem "friendly_id", "~> 5.4", ">= 5.4.2"
 gem "cssbundling-rails"
 gem "name_of_person"
 gem "sidekiq", "~> 6.5", ">= 6.5.4"
 gem "stripe"
+
+group :development, :test do
+  gem "rspec-rails"
+end

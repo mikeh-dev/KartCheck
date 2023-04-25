@@ -2,7 +2,8 @@ module.exports = {
   content: [
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
-    './app/javascript/**/*.{js, jsx, vue}'
+    './app/javascript/**/*.{js, jsx, vue}',
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {},
@@ -12,5 +13,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/line-clamp'),
+    require('flowbite/plugin')
   ]
 }
