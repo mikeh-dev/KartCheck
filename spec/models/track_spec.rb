@@ -9,28 +9,12 @@ RSpec.describe Track, type: :model do
     )
   }
 
-  it "is valid with valid attributes" do
-    expect(subject).to be_valid
-  end
-
-  it "is not valid without a name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without an overview" do
-    subject.overview = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without a phone" do
-    subject.phone = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without an email" do
-    subject.email = nil
-    expect(subject).to_not be_valid
-  end
+  describe 'validations' do
+    it { should validate_presence_of(:name) and validate_uniqueness_of(:name)}
+    it { should validate_presence_of(:overview) }
+    it { should validate_presence_of(:phone) }
+    it { should validate_presence_of(:email) }
+    it { should have_many_attached(:images) }
+  end  
   
 end

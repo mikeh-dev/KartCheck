@@ -104,6 +104,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (3.2.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     friendly_id (5.5.0)
       activerecord (>= 4.0.0)
@@ -219,6 +221,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shoulda-matchers (5.3.0)
+      activesupport (>= 5.2.0)
     sidekiq (6.5.8)
       connection_pool (>= 2.2.5, < 3)
       rack (~> 2.0)
@@ -270,6 +274,7 @@ DEPENDENCIES
   debug
   devise (~> 4.8, >= 4.8.1)
   factory_bot_rails
+  faker
   friendly_id (~> 5.4, >= 5.4.2)
   image_processing (~> 1.2)
   jbuilder
@@ -281,6 +286,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails
   selenium-webdriver
+  shoulda-matchers
   sidekiq (~> 6.5, >= 6.5.4)
   sprockets-rails
   stimulus-rails
