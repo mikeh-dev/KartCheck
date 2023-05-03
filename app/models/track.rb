@@ -4,6 +4,10 @@ class Track < ApplicationRecord
   validates :phone, presence: true
   validates :email, presence: true
   validates :opening_time, presence: true
+  validates :closing_time, presence: true
+  validates :website, presence: true
+  validates :length, presence: true
+  validates :address, presence: true
 
   has_many_attached :images, dependent: :destroy
 
