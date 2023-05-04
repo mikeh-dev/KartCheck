@@ -1,24 +1,10 @@
-# README
+This is the first iteration of TrackFacts app, designed to provide a user with an event calendar and the ability to view Track Info, Events at those tracks and add to their own calendar.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In future users will have the ability to manage multiple drivers calendars.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Rails 7
+Ruby 3
+TailwindCSS
+Postgres
+RSpec, Should Matchers, Factory Bot
+Devise
