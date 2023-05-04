@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   get '/about', to: 'home#about'
+  get '/contact', to: 'home#contact'
+  get '/calendar', to: 'home#calendar'
   resources :tracks do
     put :update_image, on: :member
   end

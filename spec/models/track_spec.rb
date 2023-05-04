@@ -1,36 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe Track, type: :model do
-  subject { 
-    described_class.new(name: "My Track",
-                        overview: "This is a track",
-                        phone: "1234567890",
-                        email: "email@track.com"
-    )
-  }
+  subject { FactoryBot.build(:track) }
 
-  it "is valid with valid attributes" do
-    expect(subject).to be_valid
+  describe 'validations' do
+    it { should validate_presence_of(:name) and validate_uniqueness_of(:name)}
+    it { should validate_presence_of(:overview) }
+    it { should validate_presence_of(:phone) }
+    it { should validate_presence_of(:email) }
+    it { should have_many_attached(:images) }
+    it { should validate_presence_of(:opening_time) }
+    it { should validate_presence_of(:closing_time) }
+    it { should validate_presence_of(:website) }
+    it { should validate_presence_of(:length) }
+    it { should validate_presence_of(:address) }
   end
+ 
 
-  it "is not valid without a name" do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without an overview" do
-    subject.overview = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without a phone" do
-    subject.phone = nil
-    expect(subject).to_not be_valid
-  end
-
-  it "is not valid without an email" do
-    subject.email = nil
-    expect(subject).to_not be_valid
-  end
-  
 end
+
