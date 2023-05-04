@@ -28,6 +28,10 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+  gem 'pry'
 end
 
 gem "devise", "~> 4.8", ">= 4.8.1"
@@ -38,9 +42,5 @@ gem "sidekiq", "~> 6.5", ">= 6.5.4"
 gem "stripe"
 
 group :development, :test do
-  gem "rspec-rails"
-  gem 'factory_bot_rails'
-  gem 'faker'
-  gem 'shoulda-matchers'
-  gem 'pry'
+  
 end
