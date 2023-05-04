@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Home', type: :request do
+
   describe 'GET /' do
     it 'succeeds' do
       get root_path
