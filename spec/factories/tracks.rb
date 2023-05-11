@@ -9,18 +9,5 @@ FactoryBot.define do
     overview { Faker::Lorem.paragraph }
     website { Faker::Internet.url }
     length { Faker::Number.between(from: 100, to: 10000) }
-
-    after(:build) do |track|
-      track.images.attach([
-        {
-          io: File.open(Rails.root.join('app', 'assets', 'images', 'JHP_1590.jpg')),
-          filename: 'JHP_3131.jpg'
-        },
-        {
-          io: File.open(Rails.root.join('app', 'assets', 'images', 'JHP_1665.jpg')),
-          filename: 'JHP_2802.jpg'
-        }
-      ])
-    end
   end
 end

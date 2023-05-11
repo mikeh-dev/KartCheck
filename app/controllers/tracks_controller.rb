@@ -44,7 +44,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:name, :address, :phone, :email, :opening_time, :closing_time, :overview, :website, :length, images: [])
+    params.require(:track).permit(:name, :address, :phone, :email, :opening_time, :closing_time, :overview, :website, :length, :main_image, images: [])
   end
   
   

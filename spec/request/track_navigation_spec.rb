@@ -11,7 +11,7 @@ RSpec.describe 'Track', type: :request do
       end
 
       it 'succeeds' do
-        get track_path(1)
+        get track_path(track)
         expect(response).to be_successful
       end
   

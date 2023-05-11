@@ -10,8 +10,12 @@ RSpec.describe 'User', type: :request do
       expect(response).to be_successful
     end
 
-
-
+  describe 'user accessing login page' do
+    it 'succeeds' do
+      get new_user_session_path
+      expect(response).to be_successful
+      end
+    end
   end
-
+  
 end
