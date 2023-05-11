@@ -15,7 +15,8 @@ RSpec.describe Track, type: :model do
     it { should validate_presence_of(:length) }
     it { should validate_presence_of(:address) }
   end
- 
+
+  
 
 end
 
