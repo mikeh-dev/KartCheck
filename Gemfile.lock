@@ -98,6 +98,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-specs (0.0.5)
+      devise (~> 4.8)
     diff-lcs (1.5.0)
     erubi (1.12.0)
     factory_bot (6.2.1)
@@ -277,6 +279,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.8, >= 4.8.1)
+  devise-specs
   factory_bot_rails
   faker
   friendly_id (~> 5.4, >= 5.4.2)

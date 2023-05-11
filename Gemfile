@@ -21,14 +21,13 @@ end
 
 group :development do
   gem "web-console"
+  gem 'devise-specs'
 end
 
 group :test do
-  gem "rspec-rails"
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
-  gem 'factory_bot_rails'
   gem 'faker'
   gem 'shoulda-matchers'
   gem 'pry'
@@ -42,5 +41,6 @@ gem "sidekiq", "~> 6.5", ">= 6.5.4"
 gem "stripe"
 
 group :development, :test do
-  
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
