@@ -1,13 +1,24 @@
-Trackfacts
+# README
 
-Rails 7, Ruby 3
-Devise
-Tailwind CCS
-RSpec / Shoulda Matchers / FactoryBot
-Postgres
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Also utilised
-Devise Specs - https://github.com/andrii/devise-specs
+Things you may want to cover:
 
-FlowBite CSS Components
+* Ruby version
 
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
