@@ -1,24 +1,14 @@
-# README
+TrackFacts 2023 - V1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the first version of the TrackFacts App for my portfolio
 
-Things you may want to cover:
+Main aim is to build MVP for allowing Users to CRUD and account, Admin User to CRUD a Track and finally allow Users to View Track Index and Show Pages.
 
-* Ruby version
+Second stage will be to add an Event Model which will provide user with a calender for Track Events and allow them to "Follow" Tracks.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Stack is;
+Rails 7
+Ruby 3
+PostGres
+Devise for Auth
+RSpec for testing (inc Shoulda Matches and FactoryBot)
