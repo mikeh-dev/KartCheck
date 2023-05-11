@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_204342) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_11_222957) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -64,16 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_204342) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "tracks", force: :cascade do |t|
+  create_table "tracks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
-    t.string "address"
-    t.string "phone"
-    t.string "email"
-    t.time "opening_time"
-    t.time "closing_time"
-    t.text "overview"
-    t.string "website"
-    t.integer "length"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

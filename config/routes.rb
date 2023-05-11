@@ -13,8 +13,6 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
   get '/contact', to: 'home#contact'
   get '/calendar', to: 'home#calendar'
-  resources :tracks do
-    put :update_image, on: :member
-  end
+  resources :tracks
 
 end

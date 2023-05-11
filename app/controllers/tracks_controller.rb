@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
   def index 
-    @tracks = Track.all.with_attached_images
+    @tracks = Track.all
   end
 
   def show
@@ -13,7 +13,6 @@ class TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
-    @track.images.attach(params[:track][:images])
     if @track.save
       redirect_to track_path(@track)
     else
@@ -27,12 +26,11 @@ class TracksController < ApplicationController
 
   def update
     @track = Track.find(params[:id])
-
-     if @track.update(track_params)
+    if @track.update(track_params)
       redirect_to @track
-     else
+    else
       render :edit
-     end
+    end
   end
 
   def destroy
@@ -44,7 +42,7 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:name, :address, :phone, :email, :opening_time, :closing_time, :overview, :website, :length, :main_image, images: [])
+    params.require(:track).permit(:name, :image)
   end
   
   
