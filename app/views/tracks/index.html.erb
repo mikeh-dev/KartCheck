@@ -19,8 +19,12 @@
     <section class="bg-center bg-no-repeat bg-cover bg-gray-700 bg-blend-multiply">
   <% end %>
     <div class="px-4 py-8 sm:p-16">
-      <h2 class="text-3xl font-bold text-white mb-4"><%= track.name %></h2>
-      <a href="<%= track_path(track) %>" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">View track</a>
+      <a href="<%= track_path(track) %>" class="text-3xl font-bold text-white mb-4 hover:underline">
+        <%= track.name %>
+      </a>
+      <div class="flex justify-between">
+        <a href="<%= track_path(track) %>" class="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 mt-5">View track</a>
+      </div>
     </div>
   </section>
 <% end %>

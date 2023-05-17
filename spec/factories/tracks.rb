@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :track do
-    name { "MyString" }
+    sequence(:name) { |n| "Track #{n}" }  
   end
 end
