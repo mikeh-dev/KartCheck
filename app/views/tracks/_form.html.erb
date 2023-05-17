@@ -1,0 +1,33 @@
+<%= form_with(model: @track, html: { class: 'mx-auto px-24' }) do |form| %>
+  <% if @track.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
+
+      <ul>
+        <% @track.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="relative z-0 w-full mb-6 group">
+    <%= form.text_field :name, class: 'block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:border-blue-600 peer', placeholder: ' ', required: false %>
+    <%= form.label :name, class: 'peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6' %>
+  </div>
+
+  <div class="relative z-0 w-full mb-6 group">
+    <%= form.text_area :overview, class: 'block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:border-blue-600 peer', placeholder: ' ', required: false %>
+    <%= form.label :overview, class: 'peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6' %>
+  </div>
+
+  <div class="relative z-0 w-full mb-6 group">
+    <%= form.file_field :image, class: 'block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400', placeholder: ' ', required: false %>
+    <%= form.label :image, class: 'peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6' %>
+    <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="user_avatar_help">This is Tracks Main Image - Don't worry you'll be able to upload around 10 images in the near future!</div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Submit', class: 'text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800' %>
+  </div>
+<% end %>

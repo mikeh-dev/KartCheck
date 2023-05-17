@@ -1,4 +1,6 @@
 class TracksController < ApplicationController
+  before_action :authenticate_admin!, only: [:new, :create]
+
   def index 
     @tracks = Track.all
   end
@@ -12,11 +14,15 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(track_params)
-    if @track.save
-      redirect_to track_path(@track)
+    if current_user&.admin?
+      @track = Track.new(track_params)
+      if @track.save
+        redirect_to @track, notice: "Track created successfully."
+      else
+        render :new
+      end
     else
-      render :new
+      redirect_to root_path, alert: "Cannot create a track due to not being an admin"
     end
   end
 
@@ -42,9 +48,14 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:name, :image)
+    params.require(:track).permit(:name, :overview, :image)
   end
   
   
+  def authenticate_admin!
+    unless current_user&.admin?
+      redirect_to root_path, alert: 'You are not authorized to perform this action.'
+    end
+  end
   
 end
