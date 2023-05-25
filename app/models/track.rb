@@ -1,6 +1,7 @@
 class Track < ApplicationRecord
   has_one_attached :image
   has_one_attached :logo
+  has_many_attached :pictures
   validates :name, presence: true
 
   def self.can_create_track?(user)
