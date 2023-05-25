@@ -28,7 +28,9 @@
 </div>
 
 <div class="flex justify-center">
+    <% if @track.logo.attached? %>
         <%= image_tag(@track.logo, class: "w-250 h-64 object-cover") %>
+    <% end %>
 </div>
 
 <div class="grid grid-cols-3 gap-4 mt-10">
