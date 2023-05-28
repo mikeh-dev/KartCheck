@@ -1,0 +1,10 @@
+
+<h1>Search Results</h1>
+
+<% @engines.each do |engine| %>
+  <div class="bg-white rounded-lg shadow p-4 mb-4">
+    <p class="font-bold text-xl mb-2"><%= engine.make %></p>
+    <p class="text-gray-600"><%= engine.model %></p>
+    <p class="text-gray-500"><%= engine.engine_number %></p>
+  </div>
+<% end %>

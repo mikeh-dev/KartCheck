@@ -4,9 +4,12 @@ Rails.application.routes.draw do
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
     end
-
+  
+  turbo_frames
 
   devise_for :users
+
+  get 'engines/search', to: 'engines#search'
 
 
   root to: 'home#index'
