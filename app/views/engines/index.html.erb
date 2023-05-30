@@ -1,1 +1,28 @@
 <%= render 'engines/search_form' %>
+
+<h1> Engines </h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Engine Number</th>
+      <th>Engine Type</th>
+      <th>Engine Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @engines.each do |engine| %>
+      <tr>
+        <td><%= engine.engine_number %></td>
+        <td><%= engine.make %></td>
+        <td><%= engine.model %></td>
+        <td><%= link_to 'Show', engine %></td>
+        <td><%= link_to 'Edit', edit_engine_path(engine) %></td>
+        <td><%= link_to 'Destroy', engine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+ 
+
