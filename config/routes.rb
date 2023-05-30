@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  get 'engines/search', to: 'engines#search'
-
+  resources :engines
 
   root to: 'home#index'
   get '/about', to: 'home#about'

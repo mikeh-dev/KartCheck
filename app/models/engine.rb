@@ -1,7 +1,8 @@
 class Engine < ApplicationRecord
   belongs_to :user
 
-  def self.search(engine_number)
-    where(engine_number: engine_number)
+  def self.ransackable_attributes(auth_object = nil)
+    ["engine_number"]
   end
+
 end

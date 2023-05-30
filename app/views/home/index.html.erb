@@ -3,28 +3,6 @@
     <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Buying a New Chassis or Engine?</h1>
     <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">KartCheck is aiming to be a comprehensive register that allows you to store all your chassis and engine details, transfer ownership when required, report as stolen and allow you to check if a chassis or engine is stolen before you buy.</p>
 
-  <div class="flex flex-col items-center">
-  <turbo-frame id="search-form">
-    <%= form_with url: engines_search_path, method: :get, class: "mb-4", data: { turbo_frame: "search-form" } do |form| %>
-      <%= form.label :engine_number, 'Engine Number', class: "mb-2" %>
-      <div class="flex">
-        <%= form.text_field :engine_number, class: "border rounded-l p-2" %>
-        <%= form.submit 'Search', class: "bg-blue-600 text-white rounded-r p-2" %>
-      </div>
-    <% end %>
-  </turbo-frame>
-  
-  <turbo-frame id="engine-results" class="mt-4">
-  <%= turbo_frame_tag 'engine-results' do %>
-    <%= render 'engines/search_results', engines: @engines %>
-  <% end %>
-</turbo-frame>
-</div>
-
-
-
-
-
             <%= link_to "Sign Up", new_user_registration_path, class: "inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900" %>
 
             <%= link_to "Learn more", about_path, class: "inline-flex justify-center hover:text-gray-900 items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg border border-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-400" %>
