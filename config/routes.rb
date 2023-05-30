@@ -5,8 +5,6 @@ Rails.application.routes.draw do
       mount Sidekiq::Web => '/sidekiq'
     end
   
-  turbo_frames
-
   devise_for :users
 
   get 'engines/search', to: 'engines#search'

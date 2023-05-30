@@ -3,17 +3,13 @@
   <%= render "shared/head" %>
 
   <body class="antialiased bg-body text-body font-body">
-          <turbo-frame id="engine-results">
-            <!-- Content to be replaced by Turbo Stream -->
-        </turbo-frame>
-
+      
     <header class="">
       <%= render "shared/flash_notice" %>
       <%= render "shared/navbar" %> 
     </header>
 
     <main class="flex-grow">
-
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
 
