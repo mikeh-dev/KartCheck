@@ -2,14 +2,14 @@
 <html class="">
   <%= render "shared/head" %>
 
-  <body class="antialiased bg-body text-body font-body">
+  <body class="">
       
     <header class="">
       <%= render "shared/flash_notice" %>
       <%= render "shared/navbar" %> 
     </header>
 
-    <main class="flex-grow">
+    <main class="">
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
 
