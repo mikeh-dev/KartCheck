@@ -9,10 +9,8 @@
       <%= render "shared/navbar" %> 
     </header>
 
-    <main class="">
       <%= content_for?(:content) ? yield(:content) : yield %>
-    </main>
-
+  
     <footer>
       <%= render "shared/footer" %>
     </footer>
