@@ -1,24 +1,33 @@
 <%= form_with(url: engines_path, method: :get) do |form| %>
   <section class="py-24 bg-white">
     <div class="container px-4 mx-auto">
-      <div class="relative py-16 md:py-32 px-6 text-center bg-white overflow-hidden rounded-7xl" style="background-image: url('<%= asset_path('') %>'); background-position: center;">
+      <div class="relative py-16 md:py-32 px-6 text-center bg-white overflow-hidden rounded-7xl bg-cover bg-center" style="background-image: url('<%= asset_path('') %>');">
         <div class="relative z-10 mx-auto md:max-w-screen-xl">
           <h3 class="mb-1 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Search</h3>
-          <%= form.label :engine_number, class: "mb-4" %>
+          <%= form.label :engine_number, class: "mb-4 text-lg text-gray-700 font-medium" %>
           <%= form.text_field :q, class: "w-full py-3 px-4 text-coolGray-500 leading-tight placeholder-coolGray-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-coolGray-200 rounded-lg shadow-xsm md:max-w-xs", placeholder: "Chassis / Engine Number..." %>
-          <%= form.submit "Search", class: "inline-block py-3 px-5 w-full leading-5 text-white bg-green-500 hover:bg-green-600 font-medium text-center focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-transparent rounded-md shadow-sm" %>
+          <%= form.submit "Search", class: "inline-block py-3 px-5 mt-4 w-full leading-5 text-white bg-green-500 hover:bg-green-600 font-medium text-center focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 border border-transparent rounded-md shadow-sm" %>
         </div>
       </div>
     </div>
   </section>
 <% end %>
 
-<% if @engines.any? %>
-  <% @engines.each do |engine| %>
-    <p>Engine Number: <%= engine.engine_number %></p>
-    <p>Engine Make: <%= engine.make %></p>
+<% if params[:q].present? %>
+  <% if @engines.any? %>
+    <div class="container mx-auto mt-8">
+      <% @engines.each do |engine| %>
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+          <p class="text-lg font-medium">Engine Number: <%= engine.engine_number %></p>
+          <p class="text-gray-500">Engine Make: <%= engine.make %></p>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="text-lg text-gray-500">No records found.</p>
   <% end %>
-<% else %>
-  <p>No records found.</p>
+<% elsif params[:q].blank? %>
+  <p class="text-lg text-gray-500">Enter a search query to get started.</p>
 <% end %>
+
 
