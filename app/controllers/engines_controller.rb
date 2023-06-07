@@ -1,7 +1,10 @@
 class EnginesController < ApplicationController
-  
   def index
-    @q = Engine.ransack(params[:q])
-    @engines = @q.result(distinct: true)
+    if params[:q].present?
+      @engines = Engine.search_engine_number(params[:q])
+    else
+      @engines = Engine.none
+    end
   end
+
 end

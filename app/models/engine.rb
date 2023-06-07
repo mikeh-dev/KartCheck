@@ -1,8 +1,12 @@
 class Engine < ApplicationRecord
   belongs_to :user
 
-  def self.ransackable_attributes(auth_object = nil)
-    ["engine_number"]
-  end
+  include PgSearch::Model
+
+  pg_search_scope :search_engine_number,
+                  against: [:engine_number],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 
 end

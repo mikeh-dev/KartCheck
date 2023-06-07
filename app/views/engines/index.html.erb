@@ -1,47 +1,4 @@
+
 <%= render 'engines/search_form' %>
 
-
-<div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="px-6 py-3">
-                    Engine Number
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Make
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Model
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Owner
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <% @engines.each do |engine| %>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                  <%= engine.engine_number %>
-                </th>
-                <td class="px-6 py-4">
-                    <%= engine.make %>
-                </td>
-                <td class="px-6 py-4">
-                    <%= engine.model %>
-                </td>
-                <td class="px-6 py-4">
-                    
-                </td>
-                <% if current_user&.admin? %>
-                <td><%= link_to 'Show', engine %></td>
-                <td><%= link_to 'Edit', edit_engine_path(engine) %></td>
-                <td><%= link_to 'Destroy', engine, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-</div>
 
