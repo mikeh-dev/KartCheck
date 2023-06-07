@@ -13,6 +13,9 @@
   </section>
 <% end %>
 
+
+
+
 <% if params[:q].present? %>
   <% if @engines.any? %>
     <div class="container mx-auto mt-8">
@@ -24,10 +27,8 @@
       <% end %>
     </div>
   <% else %>
-    <p class="text-lg text-gray-500">No records found.</p>
+    <p class="text-lg text-gray-500 bg-yellow-100 text-center py-4">No records found.</p>
   <% end %>
 <% elsif params[:q].blank? %>
-  <p class="text-lg text-gray-500">Enter a search query to get started.</p>
+  <p class="text-lg text-gray-500 bg-yellow-100 text-center py-4">Enter a search query to get started.</p>
 <% end %>
-
-
