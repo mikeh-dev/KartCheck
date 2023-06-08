@@ -1,7 +1,7 @@
 class EnginesController < ApplicationController
   def index
     if params[:q].present?
-      @engines = Engine.search_engine_number(params[:q])
+      @engines = Engine.where("LOWER(engine_number) = ?", params[:q].downcase)
     else
       @engines = Engine.none
     end
