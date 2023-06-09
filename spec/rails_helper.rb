@@ -6,6 +6,7 @@ require_relative '../config/environment'
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'selenium/webdriver'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -40,6 +41,10 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
+  config.before(:each, type: :system) do
+    driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  end
+
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
 
@@ -70,4 +75,11 @@ RSpec.configure do |config|
       with.library :rails
     end
   end
+
+  Capybara.register_driver :selenium do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  
+  Capybara.javascript_driver = :selenium
+  
 end
