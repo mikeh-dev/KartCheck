@@ -25,10 +25,18 @@
       <% end %>
     </div>
   <% else %>
-    <p class="text-lg text-gray-500 bg-yellow-100 text-center py-4">No records found.</p>
+    <div class="container mx-auto mt-8">
+      <div class="bg-yellow-100 text-lg text-gray-500 text-center py-4">
+        Sorry, no engines were found for the provided Engine Number. You can add your engine today!
+      </div>
+    </div>
   <% end %>
 <% elsif params.key?(:q) %>
-  <p class="text-lg text-gray-500 bg-yellow-100 text-center py-4">Enter a search query to get started.</p>
+  <div class="container mx-auto mt-8">
+    <div class="bg-yellow-100 text-lg text-gray-500 text-center py-4">
+      Enter a search query to get started.
+    </div>
+  </div>
 <% end %>
 
 
