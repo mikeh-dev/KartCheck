@@ -1,4 +1,6 @@
 class EnginesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  
   def index
     if params[:q].present?
       @engines = Engine.where("LOWER(engine_number) = ?", params[:q].downcase)
