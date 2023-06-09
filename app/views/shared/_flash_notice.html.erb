@@ -1,5 +1,13 @@
 <% flash.each do |type, message| %>
   <div class="<%= flash_classes(type) %>">
-    <%= message %>
+    <% if type == :error && message.is_a?(ActiveModel::Errors) %>
+      <ul>
+        <% message.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% else %>
+      <%= message %>
+    <% end %>
   </div>
 <% end %>

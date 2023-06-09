@@ -1,5 +1,13 @@
 require 'faker'
 
+# Create Admin User
+User.create(
+  name: 'Admin User',
+  email: 'mikeh112@hotmail.com',
+  password: 'password'
+)
+
+# Create Regular Users
 50.times do
   User.create(
     name: Faker::Name.name,
@@ -29,6 +37,7 @@ class CustomFaker < Faker::Base
   end
 end
 
+# Create Engines
 50.times do
   engine = Engine.new(
     make: CustomFaker.otk_make,
@@ -37,4 +46,23 @@ end
   )
   engine.user = users.sample
   engine.save!
+end
+
+# Create Tracks with Attached Images, Logo, and Pictures
+10.times do
+  track = Track.create(
+    name: Faker::Address.city,
+    overview: Faker::Lorem.paragraph,
+    website: Faker::Internet.url,
+    length: rand(1000..2000),
+    phone: Faker::PhoneNumber.phone_number,
+    address: Faker::Address.street_address
+  )
+  
+  track.image.attach(io: URI.open(Faker::LoremFlickr.image(size: "800x600", search_terms: ['race', 'track'])), filename: 'image.jpg')
+  track.logo.attach(io: URI.open(Faker::LoremFlickr.image(size: "400x400", search_terms: ['logo', 'brand'])), filename: 'logo.jpg')
+  
+  3.times do
+    track.pictures.attach(io: URI.open(Faker::LoremFlickr.image(size: "800x600", search_terms: ['race', 'track'])), filename: 'picture.jpg')
+  end
 end

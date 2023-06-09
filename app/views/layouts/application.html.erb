@@ -9,8 +9,9 @@
       <%= render "shared/navbar" %> 
     </header>
 
+    <main class="mx-auto">
       <%= content_for?(:content) ? yield(:content) : yield %>
-  
+    </main>
     <footer>
       <%= render "shared/footer" %>
     </footer>

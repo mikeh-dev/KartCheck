@@ -22,6 +22,6 @@ RSpec.feature "User's creating and viewing Engines" do
     fill_in 'Model', with: 'Kosmic'
     fill_in 'Engine Number', with: 'HY1234'
     click_button 'Submit'
-    expect(page).to have_content('Dashboard')
+    expect(page).to have_content('Search')
   end
 end

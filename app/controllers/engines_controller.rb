@@ -11,13 +11,13 @@ class EnginesController < ApplicationController
     @engine = Engine.new
   end
 
-  #TODO Create all the other CRUD actions for Engines
   def create
     @engine = Engine.new(engine_params)
     if @engine.save
-      redirect_to dashboard_path, notice: "Engine created successfully."
+      redirect_to engines_path, notice: "Engine created successfully."
     else
-      render :new
+      flash.now[:alert] = "Engine failed to save."
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -47,7 +47,7 @@ class EnginesController < ApplicationController
   private
 
   def engine_params
-    params.require(:engine).permit(:make, :model, :engine_number)
+    params.require(:engine).permit(:make, :model, :engine_number).merge(user_id: current_user.id)
   end
 
 
