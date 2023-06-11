@@ -32,4 +32,23 @@ RSpec.feature 'Navigation and Links', type: :feature do
     expect(page).not_to have_content('Account')
   end
 
+  scenario 'User can navigate to the About page' do
+    visit root_path
+    click_link 'About'
+    expect(page).to have_content('About')
+  end
+
+  scenario 'User can navigate to the Contact page' do
+    visit root_path
+    click_link 'Contact'
+    expect(page).to have_content('Contact')
+  end
+
+  scenario 'User can navigate to the Track Index page' do
+    visit root_path
+    click_link 'Tracks'
+    expect(page).to have_content('Tracks')
+  end
+
+
 end
