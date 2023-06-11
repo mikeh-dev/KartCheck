@@ -1,6 +1,9 @@
 class EnginesController < ApplicationController
   before_action :authenticate_user!, except: [:index]
+  before_action :authorize_user, except: [:index, :new, :create]
   
+
+
   def index
     if params[:q].present?
       @engines = Engine.where("LOWER(engine_number) = ?", params[:q].downcase)
@@ -52,5 +55,12 @@ class EnginesController < ApplicationController
     params.require(:engine).permit(:make, :model, :engine_number).merge(user_id: current_user.id)
   end
 
+  def authorize_user
+    engine = Engine.find(params[:id])
+    unless engine.user == current_user
+      flash[:alert] = 'You are not authorized to view this page.'
+      redirect_to root_path
+    end
+  end
 
 end

@@ -3,6 +3,6 @@ FactoryBot.define do
     engine_number { "MyString" }
     make { "MyString" }
     model { "MyString" }
-    user { nil }
+    user { 1 }
   end
 end
