@@ -1,0 +1,45 @@
+<div class="max-w-3xl mx-auto px-4">
+  <div class="flex items-center justify-between">
+    <h1 class="flex-1 font-bold text-3xl">Chassis</h1>
+
+    <div class="flex-wrap lg:flex items-center lg:space-x-3">
+      <%= link_to chassis_index_path, class: button_class(theme: "transparent") do %>
+      All Chassis
+      <% end %>
+      <%= link_to edit_chassis_path(@chassis), class: button_class(theme:"primary") do %>
+      Edit
+      <% end %>
+    </div>
+  </div>
+
+  <ul class="text-slate-700">
+      <li>
+        <p class="font-semibold">Name:</p>
+        <p><%= @chassis.name %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Make:</p>
+        <p><%= @chassis.make %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Model:</p>
+        <p><%= @chassis.model %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Number:</p>
+        <p><%= @chassis.number %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Colour:</p>
+        <p><%= @chassis.colour %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Notes:</p>
+        <p><%= @chassis.notes %></p>
+      </li>
+      <li>
+        <p class="font-semibold">Year:</p>
+        <p><%= @chassis.year %></p>
+      </li>
+  </ul>
+</div>
