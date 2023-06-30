@@ -9,7 +9,7 @@ RSpec.describe Engine, type: :model do
     it { should validate_presence_of(:make) }
   end
 
-  describe "pg_search_scope" do
+  describe "CORRECT THIS TEST NAME" do
     let!(:user1) { create(:user) }
     let!(:engine1) { create(:engine, engine_number: "CY1234", user: user1) }
     let!(:engine2) { create(:engine, engine_number: "HY5678", user: user1) }

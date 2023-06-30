@@ -13,6 +13,10 @@ RSpec.describe 'Account Deletion', type: :feature do
     expect(page).to have_text('Bye! Your account has been successfully cancelled. We hope to see you again soon.')
   end
 
+  scenario 'user cancels account deletion' do
+   
+  end
+
   scenario 'user cannot access protected pages after account deletion' do
     click_button 'Cancel my account'
     visit edit_user_registration_path

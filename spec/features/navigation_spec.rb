@@ -19,7 +19,7 @@ RSpec.feature 'Navigation and Links', type: :feature do
     expect(page).to have_link('Search', href: engines_path)
   end
 
-  scenario 'User can navigate to their account settings page' do
+  scenario 'User can navigate to their account settings page when logged in' do
     sign_in(user)
     visit root_path
     expect(page).to have_content('Account')
@@ -27,7 +27,7 @@ RSpec.feature 'Navigation and Links', type: :feature do
     expect(page).to have_content('Edit account')
   end
 
-  scenario 'User cant see account settings page if not signed in' do
+  scenario 'User can\'t see account settings page if not logged in' do
     visit root_path
     expect(page).not_to have_content('Account')
   end
