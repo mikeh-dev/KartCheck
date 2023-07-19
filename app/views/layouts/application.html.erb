@@ -2,20 +2,20 @@
 <html class="">
   <%= render "shared/head" %>
 
-  <body class="">
+  <body>
       
-    <header class="">
+    <header>
       <%= render "shared/flash_notice" %>
       <%= render "shared/navbar" %> 
     </header>
 
-    <main class="mx-auto">
+    <main class="mx-auto min-h-screen">
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
+
     <footer>
       <%= render "shared/footer" %>
     </footer>
-
   </body>
 </html>
  

@@ -1,5 +1,6 @@
 class ChassisController < ApplicationController
   before_action :set_chassis, only: %i[ show edit update destroy ]
+ 
 
   def index
     @chassis = Chassis.all
@@ -56,6 +57,6 @@ class ChassisController < ApplicationController
     end
 
     def chassis_params
-      params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year)
+      params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year).merge(user_id: current_user.id)
     end
 end
