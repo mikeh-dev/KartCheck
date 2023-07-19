@@ -35,6 +35,6 @@ RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature d
   scenario 'User cannot view another User\'s chassis' do
     sign_in user1
     visit chassis_path(chassis)
-    expect(page).to have_content('You are not authorized to view this page.')
+    expect(page).to have_content('You are not authorized to view this chassis.')
   end
 end

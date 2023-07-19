@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 has_person_name
+has_many :chassis
 
 extend FriendlyId
 friendly_id :name, use: :slugged

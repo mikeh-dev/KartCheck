@@ -1,5 +1,6 @@
 class ChassisController < ApplicationController
   before_action :set_chassis, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
  
 
   def index
@@ -7,6 +8,9 @@ class ChassisController < ApplicationController
   end
 
   def show
+    if @chassis.user != current_user
+      redirect_to root_path, alert: "You are not authorized to view this chassis."
+    end
   end
 
   def new

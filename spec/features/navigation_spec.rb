@@ -23,7 +23,8 @@ RSpec.feature 'Navigation and Links', type: :feature do
     sign_in(user)
     visit root_path
     expect(page).to have_content('Account')
-    click_link 'Account'
+    click_on 'Account'
+    click_on 'Edit Profile'
     expect(page).to have_content('Edit account')
   end
 
