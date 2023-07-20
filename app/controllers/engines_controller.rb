@@ -15,7 +15,16 @@ class EnginesController < ApplicationController
   end
 
   def create
-    @engine = Engine.new(engine_params)
+    Rails.logger.debug "Current User: #{current_user.inspect}"
+    Rails.logger.debug "Params: #{params.inspect}"
+  
+    if current_user.admin? && params[:engine][:user_id].present?
+      @engine = Engine.new(engine_params)
+      @engine.user = User.find(params[:engine][:user_id])
+    else
+      @engine = current_user.engines.new(engine_params)
+    end
+  
     if @engine.save
       redirect_to engines_path, notice: "Engine created successfully."
     else
@@ -23,6 +32,7 @@ class EnginesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  
 
   def show
     @engine = Engine.find(params[:id])
@@ -50,8 +60,15 @@ class EnginesController < ApplicationController
   private
 
   def engine_params
-    params.require(:engine).permit(:make, :model, :engine_number).merge(user_id: current_user.id)
+    Rails.logger.debug "Is Admin: #{current_user.admin?}"
+    if current_user.admin?
+      params.require(:engine).permit(:make, :model, :engine_number, :user_id)
+    else
+      params.require(:engine).permit(:make, :model, :engine_number)
+    end
   end
+  
+  
 
   def authorize_user
     engine = Engine.find(params[:id])
