@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   
   devise_for :users
 
+  get '/dashboard', to: 'users#dashboard', as: 'user_dashboard'
+
   resources :engines
 
   root to: 'home#index'

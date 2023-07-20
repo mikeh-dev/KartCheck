@@ -12,6 +12,7 @@ class EnginesController < ApplicationController
 
   def new
     @engine = Engine.new
+    @users = User.all
   end
 
   def create
@@ -39,6 +40,7 @@ class EnginesController < ApplicationController
   end
 
   def edit
+    @users = User.all
     @engine = Engine.find(params[:id])
   end
 

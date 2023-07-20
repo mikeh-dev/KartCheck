@@ -50,7 +50,7 @@ class ChassisController < ApplicationController
     @chassis.destroy
 
     respond_to do |format|
-      format.html { redirect_to chassis_index_url, notice: "Chassis was successfully destroyed." }
+      format.html { redirect_to user_dashboard_path, notice: "Chassis was successfully destroyed." }
       format.json { head :no_content }
     end
   end

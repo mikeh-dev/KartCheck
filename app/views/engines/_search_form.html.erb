@@ -12,8 +12,7 @@
     </div>
   </section>
 <% end %>
-
-
+    
 <% if params[:q].present? %>
   <% if @engines.any? %>
     <div class="container mx-auto mt-8">
@@ -24,6 +23,50 @@
         </div>
       <% end %>
     </div>
+   <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-2 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+    <div>
+       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mt-10">Chassis Search Result</h2>
+      <p class="mt-4 text-gray-500"></p>
+
+    
+      <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Chassis Number</dt>
+          <dd class="mt-2 text-sm text-gray-500">CY1265</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Make</dt>
+          <dd class="mt-2 text-sm text-gray-500">OTK - TonyKart</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Model</dt>
+          <dd class="mt-2 text-sm text-gray-500">Racer 401RR</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Year</dt>
+          <dd class="mt-2 text-sm text-gray-500">2022</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Colour</dt>
+          <dd class="mt-2 text-sm text-gray-500">Factory Green</dd>
+        </div>
+        <div class="border-t border-gray-200 pt-4">
+          <dt class="font-medium text-gray-900">Distinguishing Features</dt>
+          <dd class="mt-2 text-sm text-gray-500">Weld on Seat Stay - Engine Side</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+      
+      <%= image_tag("20211122-_DM74079.jpeg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+      <%= image_tag("20211122-_DM74082.jpeg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+      <%= image_tag("20211122-_DM74083.jpeg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+      <%= image_tag("20211122-_DM74109.jpeg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+     
+    </div>
+  </div>
+</div>
+
   <% else %>
     <div class="container mx-auto mt-8">
       <div class="bg-yellow-100 text-lg text-gray-500 text-center py-4">
@@ -37,6 +80,7 @@
       Enter a search query to get started.
     </div>
   </div>
+  
 <% end %>
 
 
