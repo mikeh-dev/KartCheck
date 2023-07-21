@@ -1,10 +1,10 @@
-TrackFacts 2023 - V1
+KartCheck 2023 - V1
 
-This is the first version of the TrackFacts App for my portfolio
+This is my second self-guided app and first using Tailwind CSS, I did use a Tailwind Starter template called KickOff Tailwind to provide the basics.
 
-Main aim is to build MVP for allowing Users to CRUD an account & Admin User to CRUD a Track and finally allow Users to View Track Index and Show Pages.
+This is the first version of the KartCheck app, the plan is for this to be a digital logbook for users to register their chassis' and engines
 
-Second stage will be to add an Event Model which will provide user with a calender for Track Events and allow them to "Follow" Tracks.
+It will allow other users to search for those to check their history, check the stolen status, and transfer ownership.
 
 Stack is;
 Rails 7
