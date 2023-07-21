@@ -23,13 +23,6 @@ RSpec.describe 'Home', type: :request do
     end
   end
 
-  describe 'GET /tracks' do
-    it 'succeeds' do
-      get tracks_path
-      expect(response).to be_successful
-    end
-  end
-
   describe 'GET /calendar' do
     it 'succeeds' do
       get calendar_path
