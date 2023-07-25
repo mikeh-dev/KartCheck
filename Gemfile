@@ -11,14 +11,24 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "jbuilder"
 gem "redis", "~> 4.0"
-gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "pg_search"
 gem "ransack"
 
+# Add platform-specific declarations for the non-platform-specific gems
+platforms :ruby do
+  gem "devise", "~> 4.8", ">= 4.8.1"
+  gem "friendly_id", "~> 5.4", ">= 5.4.2"
+  gem "cssbundling-rails"
+  gem "name_of_person"
+  gem "sidekiq", "~> 6.5", ">= 6.5.4"
+  gem "stripe"
+end
+
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "debug", platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
@@ -29,13 +39,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
-
-gem "devise", "~> 4.8", ">= 4.8.1"
-gem "friendly_id", "~> 5.4", ">= 5.4.2"
-gem "cssbundling-rails"
-gem "name_of_person"
-gem "sidekiq", "~> 6.5", ">= 6.5.4"
-gem "stripe"
 
 group :development, :test do
   gem "capybara"
