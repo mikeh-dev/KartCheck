@@ -1,7 +1,7 @@
 class Engine < ApplicationRecord
   belongs_to :user
 
-  validates :make, presence: true
+  validates :make, :model, :engine_number, presence: true
   
   include PgSearch::Model
 
