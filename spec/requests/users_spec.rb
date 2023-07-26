@@ -1,7 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  describe "GET /index" do
-    pending "add some examples (or delete) #{__FILE__}"
+  describe 'user accessing signup page' do
+    it 'succeeds' do
+      get new_user_registration_path
+      expect(response).to be_successful
+      get new_user_session_path
+      expect(response).to be_successful
+    end
+
+  describe 'user accessing login page' do
+    it 'succeeds' do
+      get new_user_session_path
+      expect(response).to be_successful
+      end
+    end
   end
 end
