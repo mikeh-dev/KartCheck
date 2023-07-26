@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get '/dashboard', to: 'users#dashboard', as: 'user_dashboard'
 
+  get '/search', to: 'search#index'
+
   resources :engines
 
   root to: 'home#index'

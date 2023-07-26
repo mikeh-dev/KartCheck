@@ -3,11 +3,7 @@ class EnginesController < ApplicationController
   before_action :authorize_user, except: [:index, :new, :create]
   
   def index
-    if params[:q].present?
-      @engines = Engine.where("LOWER(engine_number) = ?", params[:q].downcase)
-    else
-      @engines = Engine.none
-    end
+    @engines = current_user.engines
   end
 
   def new
@@ -16,9 +12,6 @@ class EnginesController < ApplicationController
   end
 
   def create
-    Rails.logger.debug "Current User: #{current_user.inspect}"
-    Rails.logger.debug "Params: #{params.inspect}"
-  
     if current_user.admin? && params[:engine][:user_id].present?
       @engine = Engine.new(engine_params)
       @engine.user = User.find(params[:engine][:user_id])
@@ -36,7 +29,9 @@ class EnginesController < ApplicationController
   
 
   def show
-    @engine = Engine.find(params[:id])
+    if @engine.user != current_user
+      redirect_to root_path, alert: "You are not authorized to view this engine."
+    end
   end
 
   def edit
