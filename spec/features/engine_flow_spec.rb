@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature "User's creating, updating, deleting and viewing Engines" do
   let(:admin_user) { create(:user, :admin) }
   let(:user1) { create(:user, email: 'user1@example.com') }
-  let(:user2) { create(:user, email: 'user2@example.com' ) }
-  let(:engine) { create(:engine, user: user2 ) }
+  let(:user) { create(:user, email: 'user2@example.com' ) }
+  let(:engine) { create(:engine, user: user ) }
 
   scenario 'Admin creates a new engine for itself' do
     sign_in(admin_user)
@@ -32,7 +32,7 @@ RSpec.feature "User's creating, updating, deleting and viewing Engines" do
   end
 
   scenario 'User views own Engine' do
-    sign_in(user2)
+    sign_in(user)
     visit engine_path(engine)
     expect(page).to have_content('Engine Details')
   end
@@ -41,7 +41,7 @@ RSpec.feature "User's creating, updating, deleting and viewing Engines" do
     sign_in(user1)
     engine = create(:engine, user: user1)
     sign_out(user1)
-    sign_in(user2)
+    sign_in(user)
     visit engine_path(engine)
     expect(page).to have_content('You are not authorized to view this page.')
   end

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature 'User searches', type: :feature do
     scenario 'user searches for an engine' do
-        visit engines_path
+        visit search_path
         
         expect(page).to have_text 'Search Engines'
         expect(page).to have_button 'Search'

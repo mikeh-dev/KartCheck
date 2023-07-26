@@ -29,6 +29,7 @@ class EnginesController < ApplicationController
   
 
   def show
+    @engine = Engine.find(params[:id])
     if @engine.user != current_user
       redirect_to root_path, alert: "You are not authorized to view this engine."
     end

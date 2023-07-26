@@ -16,7 +16,7 @@ RSpec.feature 'Navigation and Links', type: :feature do
     visit engines_path
 
     expect(page).to have_content('Engines')
-    expect(page).to have_link('Search', href: engines_path)
+    expect(page).to have_link('Search', href: search_path)
   end
 
   scenario 'User can navigate to their account settings page when logged in' do

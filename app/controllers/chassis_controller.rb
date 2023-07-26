@@ -12,8 +12,8 @@ class ChassisController < ApplicationController
   end
 
   def new
-    @chassis = Chassis.new
     @users = User.all
+    @chassis = Chassis.new
   end
 
   def edit
