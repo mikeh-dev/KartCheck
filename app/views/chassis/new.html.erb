@@ -1,5 +1,6 @@
 <div class="max-w-3xl mx-auto px-4">
-  <h1 class="font-bold text-3xl mb-6">New chassis</h1>
 
-  <%= render 'form', chassis: @chassis %>
+  <h2 class="text-4xl font-bold tracking-tight text-black sm:text-6xl mb-5 text-center">Add your Chassis</h2>
+
+  <%= render partial: "chassis/chassis_form", locals: { engine: @chassis } %>
 </div>

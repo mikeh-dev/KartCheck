@@ -1,0 +1,89 @@
+<div class="container mx-auto mb-5">
+ <% if flash[:notice].present? %>
+  <div class="alert alert-success">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= form_for @chassis do |f| %>
+  <% if @chassis.errors.any? %>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <ul class="list-disc ml-4">
+          <% @chassis.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <div class="space-y-12">
+    <div class="border-b border-gray-900/10 pb-12">
+      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+        <div class="sm:col-span-4">
+          <label for="make" class="block text-sm font-medium leading-6 text-gray-900">Make</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <%= f.text_field :make, id: "make", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "e.g OTK, Kart Republic, Xenon" %>
+            </div>
+          </div>
+        </div>
+
+        <% if current_user.admin? %>
+          <div class="sm:col-span-4">
+            <label for="user_id" class="block text-sm font-medium leading-6 text-gray-900">User</label>
+            <div class="mt-2">
+              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                <%= f.collection_select :user_id, @users, :id, :name, {}, { class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" } %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+
+        <div class="sm:col-span-4">
+          <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <%= f.text_field :model, id: "model", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "TonyKart, Kosmic, Expirit" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <label for="number" class="block text-sm font-medium leading-6 text-gray-900">Chassis Number</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <%= f.text_field :number, id: "number", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter chassis number" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <label for="year" class="block text-sm font-medium leading-6 text-gray-900">Year</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <%= f.text_field :year, id: "year", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter chassis year" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="sm:col-span-4">
+          <label for="colour" class="block text-sm font-medium leading-6 text-gray-900">Colour</label>
+          <div class="mt-2">
+            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+              <%= f.text_field :colour, id: "colour", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter chassis colour" %>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="pt-5">
+      <div class="flex justify-end">
+        <%= f.submit "Save", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

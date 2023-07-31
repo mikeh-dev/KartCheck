@@ -9,6 +9,9 @@ class ChassisController < ApplicationController
 
   def show
     @chassis = Chassis.find(params[:id])
+    if @chassis.user != current_user
+      redirect_to root_path, alert: "You are not authorized to view this chassis."
+    end
   end
 
   def new
@@ -16,44 +19,40 @@ class ChassisController < ApplicationController
     @chassis = Chassis.new
   end
 
+  def create
+    if current_user.admin? && params[:chassis][:user_id].present?
+      @chassis = Chassis.new(chassis_params)
+      @chassis.user = User.find(params[:chassis][:user_id])
+    else
+      @chassis = current_user.chassis.new(chassis_params)
+    end
+
+    if @chassis.save
+      redirect_to chassis_path(@chassis), notice: "Chassis created successfully."
+    else
+      flash.now[:alert] = "Chassis failed to save."
+      render :new, status: :unprocessable_entity
+    end
+  end
+
   def edit
     @users = User.all
     @chassis = Chassis.find(params[:id])
   end
 
-  def create
-    @chassis = Chassis.new(chassis_params)
-
-    respond_to do |format|
-      if @chassis.save
-        format.html { redirect_to chassis_url(@chassis), notice: "Chassis was successfully created." }
-        format.json { render :show, status: :created, location: @chassis }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @chassis.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
   def update
-    respond_to do |format|
-      if @chassis.update(chassis_params)
-        format.html { redirect_to chassis_url(@chassis), notice: "Chassis was successfully updated." }
-        format.json { render :show, status: :ok, location: @chassis }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @chassis.errors, status: :unprocessable_entity }
-      end
+    @chassis = Chassis.find(params[:id])
+    if @chassis.update(chassis_params)
+      redirect_to chassis_path(@chassis), notice: "Chassis updated successfully."
+    else
+      render :edit
     end
   end
 
   def destroy
+    @chassis = Chassis.find(params[:id])
     @chassis.destroy
-
-    respond_to do |format|
-      format.html { redirect_to user_dashboard_path, notice: "Chassis was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to user_dashboard_path, notice: "Chassis deleted successfully."
   end
 
   private
@@ -69,4 +68,8 @@ class ChassisController < ApplicationController
         redirect_to root_path
       end
     end
+
+
+
+
 end

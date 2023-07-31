@@ -8,6 +8,7 @@
         <div class="mb-4">
           <span class="block text-gray-700 text-sm font-bold mb-2"><%= chassis.name %></span>
           <%= link_to 'Edit', edit_chassis_path(chassis), class: 'text-blue-500 hover:text-blue-800' %>
+          <%= link_to 'View', chassis_path(chassis), class: 'text-blue-500 hover:text-blue-800' %>
         </div>
       </div>
     <% end %>
@@ -20,6 +21,7 @@
         <div class="mb-4">
           <span class="block text-gray-700 text-sm font-bold mb-2"><%= engine.engine_number %></span>
           <%= link_to 'Edit', edit_engine_path(engine), class: 'text-blue-500 hover:text-blue-800' %>
+          <%= link_to 'View', engine_path(engine), class: 'text-blue-500 hover:text-blue-800' %>
         </div>
       </div>
     <% end %>

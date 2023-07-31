@@ -1,9 +1,16 @@
 class EnginesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   before_action :authorize_user, except: [:index, :new, :create]
   
   def index
     @engines = current_user.engines
+  end
+
+  def show
+    @engine = Engine.find(params[:id])
+    if @engine.user != current_user
+      redirect_to root_path, alert: "You are not authorized to view this engine."
+    end
   end
 
   def new
@@ -26,14 +33,6 @@ class EnginesController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
-  
-
-  def show
-    @engine = Engine.find(params[:id])
-    if @engine.user != current_user
-      redirect_to root_path, alert: "You are not authorized to view this engine."
-    end
-  end
 
   def edit
     @users = User.all
@@ -43,7 +42,7 @@ class EnginesController < ApplicationController
   def update
     @engine = Engine.find(params[:id])
     if @engine.update(engine_params)
-      redirect_to dashboard_path, notice: "Engine updated successfully."
+      redirect_to user_dashboard_path, notice: "Engine updated successfully."
     else
       render :edit
     end
@@ -52,7 +51,7 @@ class EnginesController < ApplicationController
   def destroy
     @engine = Engine.find(params[:id])
     @engine.destroy
-    redirect_to dashboard_path, notice: "Engine deleted successfully."
+    redirect_to user_dashboard_path, notice: "Engine deleted successfully."
   end
 
   private
