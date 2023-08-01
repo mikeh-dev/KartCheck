@@ -71,7 +71,7 @@ RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature d
   scenario 'User can delete their own chassis' do
     sign_in user2
     visit chassis_path(chassis)
-    click_link 'Delete'
+    click_button 'Delete'
     expect(page).to have_content('Chassis deleted successfully.')
   end
 end
