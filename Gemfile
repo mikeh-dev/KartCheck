@@ -18,7 +18,6 @@ gem "pg_search"
 gem "ransack"
 gem "bundle-audit"
 gem "brakeman", require: false
-gem "rubocop", require: false
 
 # Add platform-specific declarations for the non-platform-specific gems
 platforms :ruby do
