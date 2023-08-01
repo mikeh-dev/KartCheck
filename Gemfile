@@ -16,6 +16,7 @@ gem "bootsnap", require: false
 gem "image_processing", "~> 1.2"
 gem "pg_search"
 gem "ransack"
+gem "bundle-audit"
 
 # Add platform-specific declarations for the non-platform-specific gems
 platforms :ruby do
