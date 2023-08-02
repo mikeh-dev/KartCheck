@@ -39,7 +39,11 @@ end
   engine = Engine.new(
     make: CustomFaker.make,
     model: CustomFaker.model,
-    engine_number: CustomFaker.engine_number
+    engine_number: CustomFaker.engine_number,
+    stolen_status: false,
+    barrel_number: rand(100000..999999),
+    current_seal: rand(100000..999999),
+    year: rand(1990..2023)
   )
   engine.user = users.sample
   engine.save!
@@ -91,6 +95,7 @@ end
     colour: CustomFaker.chassis_colour,
     notes: CustomFaker.chassis_notes,
     year: CustomFaker.chassis_year
+    stolen: false
   )
   chassis.user = users.sample
   chassis.save!

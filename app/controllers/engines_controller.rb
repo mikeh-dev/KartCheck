@@ -29,7 +29,7 @@ class EnginesController < ApplicationController
     if @engine.save
       redirect_to engines_path, notice: "Engine created successfully."
     else
-      flash.now[:alert] = "Engine failed to save."
+      @users = User.all if current_user.admin?
       render :new, status: :unprocessable_entity
     end
   end
@@ -44,7 +44,8 @@ class EnginesController < ApplicationController
     if @engine.update(engine_params)
       redirect_to user_dashboard_path, notice: "Engine updated successfully."
     else
-      render :edit
+      @users = User.all if current_user.admin?
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -59,9 +60,9 @@ class EnginesController < ApplicationController
   def engine_params
     Rails.logger.debug "Is Admin: #{current_user.admin?}"
     if current_user.admin?
-      params.require(:engine).permit(:make, :model, :engine_number, :user_id)
+      params.require(:engine).permit(:make, :model, :engine_number, :user_id, :stolen_status, :current_seal, :barrel_number, :year)
     else
-      params.require(:engine).permit(:make, :model, :engine_number)
+      params.require(:engine).permit(:make, :model, :engine_number, :stolen_status, :current_seal, :barrel_number, :year)
     end
   end
   
