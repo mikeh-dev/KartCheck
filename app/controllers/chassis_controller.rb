@@ -1,4 +1,5 @@
 class ChassisController < ApplicationController
+
   before_action :authenticate_user!
   before_action :authorize_user, except: [:index, :new, :create]
   
@@ -58,7 +59,7 @@ class ChassisController < ApplicationController
   private
 
     def chassis_params
-      params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year).merge(user_id: current_user.id)
+      params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year, :stolen).merge(user_id: current_user.id)
     end
 
     def authorize_user
