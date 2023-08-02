@@ -94,7 +94,7 @@ end
     number: CustomFaker.chassis_number,
     colour: CustomFaker.chassis_colour,
     notes: CustomFaker.chassis_notes,
-    year: CustomFaker.chassis_year
+    year: CustomFaker.chassis_year,
     stolen: false
   )
   chassis.user = users.sample
