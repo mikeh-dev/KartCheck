@@ -6,9 +6,9 @@
     <% @chassis.each do |chassis| %>
       <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
         <div class="mb-4">
-          <span class="block text-gray-700 text-sm font-bold mb-2"><%= chassis.make %></span>
-          <span class="block text-gray-700 text-sm font-bold mb-2"><%= chassis.number %></span>
-          <span class="block text-gray-700 text-sm font-bold mb-2"><%= chassis.stolen %></span>
+          <span class="block text-gray-700 text-sm font-bold mb-2">Chassis Make: <%= chassis.make %></span>
+          <span class="block text-gray-700 text-sm font-bold mb-2">Chassis Number: <%= chassis.number %></span>
+          <span class="block text-gray-700 text-sm font-bold mb-2"><%= formatted_stolen_status(chassis) %></span>
           <%= link_to 'Edit', edit_chassis_path(chassis), class: 'text-blue-500 hover:text-blue-800' %>
           <%= link_to 'View', chassis_path(chassis), class: 'text-blue-500 hover:text-blue-800' %>
         </div>
