@@ -1,33 +1,45 @@
-<div class="container mx-auto px-6 py-8">
-  <h1 class="text-3xl font-semibold text-gray-800"><%= @user.name %>'s Dashboard</h1>
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+  <h1 class="text-3xl font-semibold text-gray-800 text-center mb-8"><%= @user.name %>'s Dashboard</h1>
 
-  <div class="mt-8">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-3">Your Chassis</h2>
+    <div class="flex justify-center mt-8 mb-8">
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+      <%= link_to 'Edit Profile', edit_user_registration_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Add New Chassis', new_chassis_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Add New Engine', new_engine_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Search', search_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <% @chassis.each do |chassis| %>
-      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-        <div class="mb-4">
-          <span class="block text-gray-700 text-sm font-bold mb-2">Chassis Make: <%= chassis.make %></span>
-          <span class="block text-gray-700 text-sm font-bold mb-2">Chassis Number: <%= chassis.number %></span>
-          <span class="block text-gray-700 text-sm font-bold mb-2"><%= formatted_stolen_status(chassis) %></span>
-          <%= link_to 'Edit', edit_chassis_path(chassis), class: 'text-blue-500 hover:text-blue-800' %>
-          <%= link_to 'View', chassis_path(chassis), class: 'text-blue-500 hover:text-blue-800' %>
+      <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="p-6">
+          <h2 class="text-lg font-medium text-gray-900 mb-3">
+            <span class="text-gray-600">Chassis Make:</span>
+            <%= chassis.make %>
+          </h2>
+          <h2 class="text-lg font-medium text-gray-900 mb-3">Chassis Number: <%= chassis.number %></h2>
+          <h2 class="text-lg font-medium text-gray-900 mb-3"><%= formatted_stolen_status(chassis) %></h2>
+          <div class="flex justify-end">
+            <%= link_to 'Edit', edit_chassis_path(chassis), class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mr-2' %>
+            <%= link_to 'View', chassis_path(chassis), class: 'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center'  %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
 
-  <div class="mt-8">
-    <h2 class="text-2xl font-semibold text-gray-800 mb-3">Your Engines</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
     <% @engines.each do |engine| %>
-      <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col">
-        <div class="mb-4">
-          <span class="block text-gray-700 text-sm font-bold mb-2"><%= engine.engine_number %></span>
-          <%= link_to 'Edit', edit_engine_path(engine), class: 'text-blue-500 hover:text-blue-800' %>
-          <%= link_to 'View', engine_path(engine), class: 'text-blue-500 hover:text-blue-800' %>
+      <div class="border border-gray-200 rounded-lg overflow-hidden">
+        <div class="p-6">
+          <h2 class="text-lg font-medium text-gray-900 mb-3">Engine Number: <%= engine.engine_number %></h2>
+          <div class="flex justify-end">
+            <%= link_to 'Edit', edit_engine_path(engine), class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mr-2' %>
+            <%= link_to 'View', engine_path(engine), class: 'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center' %>
+          </div>
         </div>
       </div>
     <% end %>
   </div>
-
-  <%= link_to 'Edit Profile', edit_user_registration_path, class: 'text-blue-500 hover:text-blue-800' %>
 </div>
