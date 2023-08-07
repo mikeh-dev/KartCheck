@@ -3,13 +3,14 @@
 
     <div class="flex justify-center mt-8 mb-8">
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <%= link_to 'Edit Profile', edit_user_registration_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-      <%= link_to 'Add New Chassis', new_chassis_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-      <%= link_to 'Add New Engine', new_engine_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-      <%= link_to 'Search', search_path, class: 'bg-indigo-900 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Edit Profile', edit_user_registration_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Add New Chassis', new_chassis_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Add New Engine', new_engine_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+      <%= link_to 'Search', search_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
     </div>
   </div>
 
+  <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex justify-center">Chassis'</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
     <% @chassis.each do |chassis| %>
       <div class="border border-gray-200 rounded-lg overflow-hidden">
@@ -29,7 +30,10 @@
     <% end %>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
+
+    <h2 class="text-2xl font-semibold text-gray-800 mb-4 mt-8 flex justify-center">Engines</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
     <% @engines.each do |engine| %>
       <div class="border border-gray-200 rounded-lg overflow-hidden">
         <div class="p-6">

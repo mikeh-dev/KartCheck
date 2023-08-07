@@ -1,7 +1,2 @@
-
-<div class="max-w-3xl mx-auto px-4">
-
-  <h2 class="text-4xl font-bold tracking-tight text-black sm:text-6xl mb-5 text-center">Edit your Engine</h2>
-
-  <%= render partial: "engines/engine_form", locals: { engine: @engine } %>
-</div>
+<% content_for :title, 'Edit Engine' %>
+<%= render partial: "engines/engine_form", locals: { engine: @engine } %>

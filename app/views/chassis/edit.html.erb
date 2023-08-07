@@ -1,7 +1,2 @@
-
-<div class="max-w-3xl mx-auto px-4">
-
-  <h2 class="text-4xl font-bold tracking-tight text-black sm:text-6xl mb-5 text-center">Edit your Chassis</h2>
-
-  <%= render partial: "chassis/chassis_form", locals: { chassis: @chassis } %>
-</div>
+ <% content_for :title, 'New Chassis' %>
+ <%= render partial: "chassis/chassis_form", locals: { chassis: @chassis } %>

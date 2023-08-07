@@ -1,77 +1,118 @@
-<div class="container mx-auto mb-5">
- <% if flash[:notice].present? %>
-  <div class="alert alert-success">
-    <%= flash[:notice] %>
-  </div>
-<% end %>
+<div class="flex items-center justify-center min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-xl w-full max-auto space-y-8 bg-white shadow-lg rounded-lg p-8 mx-auto sm:p-10">
 
-<%= form_for @engine do |f| %>
-  <% if @engine.errors.any? %>
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
-        <ul class="list-disc ml-4">
-          <% @engine.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
+    <div class="flex items-center justify-center">
+      <div class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+        <%= @engine.new_record? ? 'New Engine' : 'Edit Engine' %>
+      </div>
+    </div>
+
+    <% if flash[:notice].present? %>
+      <div class="alert alert-success">
+        <%= flash[:notice] %>
       </div>
     <% end %>
-  <div class="space-y-12">
-    <div class="border-b border-gray-900/10 pb-12">
-      <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-        <div class="sm:col-span-4">
-          <label for="make" class="block text-sm font-medium leading-6 text-gray-900">Make</label>
-          <div class="mt-2">
-            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <%= f.text_field :make, id: "make", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "e.g Iame, Rotax, KZ etc " %>
-            </div>
-          </div>
-        </div>
 
-        <% if current_user.admin? %>
-          <div class="sm:col-span-4">
-            <label for="user_id" class="block text-sm font-medium leading-6 text-gray-900">User</label>
-            <div class="mt-2">
-              <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                <%= f.collection_select :user_id, @users, :id, :name, {}, { class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" } %>
+    <%= form_for @engine do |f| %>
+      <% if @engine.errors.any? %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+          <ul class="list-disc ml-4">
+            <% @engine.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="space-y-12">
+        <div class="border-b border-gray-900/10 pb-12">
+          <div class="mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div class="sm:col-span-6">
+              <label for="make" class="block text-sm font-medium leading-6 text-gray-900">Make</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <%= f.text_field :make, id: "make", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "e.g Iame, Rotax, KZ etc " %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
 
+            <% if current_user.admin? %>
+              <div class="sm:col-span-6">
+                <label for="user_id" class="block text-sm font-medium leading-6 text-gray-900">User</label>
+                <div class="mt-2">
+                  <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                    <%= f.collection_select :user_id, @users, :id, :name, {}, { class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" } %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
 
-        <div class="sm:col-span-4">
-          <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
-          <div class="mt-2">
-            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <%= f.text_field :model, id: "model", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "e.g X30, Junior Max, WaterSwift etc" %>
+            <div class="sm:col-span-6">
+              <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <%= f.text_field :model, id: "model", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "e.g X30, Junior Max, WaterSwift etc" %>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="sm:col-span-4">
-          <label for="engine_number" class="block text-sm font-medium leading-6 text-gray-900">Engine Number</label>
-          <div class="mt-2">
-            <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-              <%= f.text_field :engine_number, id: "engine_number", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter engine number" %>
+            <div class="sm:col-span-6">
+              <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Year</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <%= f.text_field :year, id: "Year", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Year of Manufacture" %>
+                </div>
+              </div>
             </div>
+
+            <div class="sm:col-span-6">
+              <label for="engine_number" class="block text-sm font-medium leading-6 text-gray-900">Engine Number</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <%= f.text_field :engine_number, id: "engine_number", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter Engine Number" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="sm:col-span-6">
+              <label for="barrel_number" class="block text-sm font-medium leading-6 text-gray-900">Barrel Number</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <%= f.text_field :barrel_number, id: "barrel_number", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter Barrel Number" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="sm:col-span-6">
+              <label for="current_seal" class="block text-sm font-medium leading-6 text-gray-900">Current Seal Number</label>
+              <div class="mt-2">
+                <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                  <%= f.text_field :current_seal, id: "Current Seal", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter Current Seal Number" %>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+            <div class="sm:col-span-6">
+              <div class="flex items-center">
+                <%= f.label :stolen_status, class: "block text-sm text-gray-900" %>
+                <%= f.select :stolen_status, options_for_select([['Stolen', 'stolen'], ['Not Stolen', 'not_stolen']], @engine.stolen_status), {}, { id: "stolen_status", class: "block ml-2 w-32 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+              </div>
+            </div>
+
           </div>
         </div>
 
-      <div class="mt-2">
-        <div class="flex items-center">
-          <%= f.label :stolen_status, class: "block text-sm text-gray-900" %>
-          <%= f.select :stolen_status, options_for_select([['Stolen', 'stolen'], ['Not Stolen', 'not_stolen']], @engine.stolen_status), {}, { id: "stolen_status", class: "block ml-2 w-24 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
+        <div class="pt-5">
+          <div class="flex justify-end">
+            <%= f.submit "Save", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
+          </div>
         </div>
-      </div>
+    <% end %>
 
-      </div>
-    </div>
-
-    <div class="pt-5">
-      <div class="flex justify-end">
-        <%= f.submit "Save", class: "ml-3 inline-flex justify-center py-2 px-4 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out" %>
-      </div>
-    </div>
   </div>
-<% end %>
 </div>
