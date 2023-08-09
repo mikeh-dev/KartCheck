@@ -18,7 +18,7 @@ RSpec.describe 'Home', type: :request do
 
   describe 'GET /contact' do
     it 'succeeds' do
-      get contact_path
+      get new_contact_path
       expect(response).to be_successful
     end
   end
