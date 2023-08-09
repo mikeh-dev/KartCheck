@@ -20,5 +20,10 @@ test:
   port: 5432
 
 production:
-  <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  adapter: postgresql
+  host: app-df972dc1-4bc2-4988-be0d-fbabd98266fe-do-user-14435925-0.b.db.ondigitalocean.com
+  port: 25060
+  username: kartcheckdb
+  password: AVNS_YmCbtUYB8MYPF-I2JxN
+  database: kartcheckdb
+  sslmode: require
