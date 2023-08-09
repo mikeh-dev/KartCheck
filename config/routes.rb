@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
   get '/about', to: 'home#about'
-  get '/contact', to: 'home#contact'
+  get '/contact', to: 'home#new_contact', as: :new_contact
   get '/calendar', to: 'home#calendar'
 
+  post 'create_contact', to: 'home#create_contact', as: :create_contact
+  
 end

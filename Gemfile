@@ -18,6 +18,7 @@ gem "pg_search"
 gem "ransack"
 gem "bundle-audit"
 gem "brakeman", require: false
+gem "simple_form"
 
 # Add platform-specific declarations for the non-platform-specific gems
 platforms :ruby do
