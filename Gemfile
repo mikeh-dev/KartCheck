@@ -19,7 +19,6 @@ gem "ransack"
 gem "bundle-audit"
 gem "brakeman", require: false
 gem "simple_form"
-gem "aws-sdk-s3", require: false
 
 
 # Add platform-specific declarations for the non-platform-specific gems
