@@ -1,6 +1,16 @@
 class HomeController < ApplicationController
   def index
     @user = current_user
+    @engines = []
+    @chassis = []
+    
+    if params[:q].present?
+      @engines = Engine.where("LOWER(engine_number) = ?", params[:q].downcase)
+      @chassis = Chassis.where("LOWER(number) = ?", params[:q].downcase)
+    else
+      @engines = Engine.none
+      @chassis = Chassis.none
+    end
   end
 
   def about

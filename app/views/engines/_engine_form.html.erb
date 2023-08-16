@@ -94,13 +94,6 @@
 
             <div class="sm:col-span-6">
               <div class="flex items-center">
-                <%= f.label :attachments, "Upload" %>
-                <%= f.file_field :attachments, multiple: true %>
-              </div>
-            </div>
-
-            <div class="sm:col-span-6">
-              <div class="flex items-center">
                 <%= f.label :stolen_status, class: "block text-sm text-gray-900" %>
                 <%= f.select :stolen_status, options_for_select([['Stolen', 'stolen'], ['Not Stolen', 'not_stolen']], @engine.stolen_status), {}, { id: "stolen_status", class: "block ml-2 w-32 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
               </div>
