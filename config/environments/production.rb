@@ -62,6 +62,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "track_directory_production"
 
+  config.action_mailer.default_url_options = { host: 'urchin-app-z98ql.ondigitalocean.app' }
+
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
