@@ -20,5 +20,7 @@ Rails.application.routes.draw do
   get '/calendar', to: 'home#calendar'
 
   post 'create_contact', to: 'home#create_contact', as: :create_contact
+
+  get '/contact_form', to: 'contact_form#index'
   
 end

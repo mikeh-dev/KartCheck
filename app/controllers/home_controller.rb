@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     @user = current_user
     @engines = []
     @chassis = []
-    
+
     if params[:q].present?
       @engines = Engine.where("LOWER(engine_number) = ?", params[:q].downcase)
       @chassis = Chassis.where("LOWER(number) = ?", params[:q].downcase)
@@ -33,9 +33,7 @@ class HomeController < ApplicationController
 end
 
 private
-
   def contact_params
     params.require(:contact).permit(:first_name, :last_name, :company, :email, :phone_number, :message)
   end
-
 end

@@ -1,16 +1,24 @@
 require 'rails_helper'
 
 RSpec.feature 'Homepage', type: :feature do
-  scenario "User sees sign in and sign up links" do
+  scenario "User sees sign in link" do
     visit root_path
     expect(page).to have_link 'Sign In'
-    expect(page).to have_link 'Sign Up'
   end
 
-  scenario "User sees perform a search link" do
+  scenario "User sees performs a search" do
     visit root_path
-    expect(page).to have_link 'Search'
-    click_link 'Search'
-    expect(page).to have_content 'Search Engines'
+    fill_in "q", with: 'HYTEST'
+    click_button "Search"
+    expect(page).to have_content "Sorry,"
   end
+
+  scenario "User sees sign up link after searching" do
+    visit root_path
+    fill_in "q", with: 'HYTEST'
+    click_button "Search"
+    expect(page).to have_content "Sorry,"
+    expect(page).to have_link 'Register today'
+  end
+
 end

@@ -12,14 +12,14 @@ RSpec.feature 'User signs out' do
     expect(page).to have_current_path root_path
   end
 
-  scenario 'redirect after sign-out' do
+  scenario 'redirected to Homepage after sign-out' do
     user = create(:user)
     sign_in user
     visit root_path
 
     click_button 'Log Out'
     expect(page).to have_text 'Signed out successfully.'
-    expect(page).to have_link 'Sign Up'
+    expect(page).to have_link 'Sign In'
   end
 
   scenario 'check user is signed out after sign-out' do
