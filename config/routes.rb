@@ -12,9 +12,7 @@ Rails.application.routes.draw do
 
   get '/search', to: 'search#index'
 
-  resources :engines do 
-    resources :service_records
-  end
+  resources :engines
 
   root to: 'home#index'
   get '/about', to: 'home#about'
