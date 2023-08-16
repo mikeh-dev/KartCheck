@@ -4,6 +4,8 @@ class ContactMailer < ApplicationMailer
     mail(
       to: 'mikeh112@hotmail.com',
       subject: 'New Contact Form Submission'
-    )
+    ) do |format|
+      format.html
+    end
   end
 end
