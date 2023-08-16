@@ -37,6 +37,7 @@ class EnginesController < ApplicationController
   def edit
     @users = User.all
     @engine = Engine.find(params[:id])
+    @engine.service_records.build
   end
 
   def update
@@ -60,9 +61,9 @@ class EnginesController < ApplicationController
   def engine_params
     Rails.logger.debug "Is Admin: #{current_user.admin?}"
     if current_user.admin?
-      params.require(:engine).permit(:make, :model, :engine_number, :user_id, :stolen_status, :current_seal, :barrel_number, :year)
+      params.require(:engine).permit(:make, :model, :engine_number, :user_id, :stolen_status, :current_seal, :barrel_number, :year, service_records: [])
     else
-      params.require(:engine).permit(:make, :model, :engine_number, :stolen_status, :current_seal, :barrel_number, :year)
+      params.require(:engine).permit(:make, :model, :engine_number, :stolen_status, :current_seal, :barrel_number, :year, service_records: [])
     end
   end
   

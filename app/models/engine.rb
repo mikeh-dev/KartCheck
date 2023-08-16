@@ -1,5 +1,6 @@
 class Engine < ApplicationRecord
   belongs_to :user
+  has_many :service_records
 
   validates :make, :model, :engine_number, presence: true
 

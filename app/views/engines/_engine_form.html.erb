@@ -92,10 +92,12 @@
               </div>
             </div>
 
-
-
-
-
+            <div class="sm:col-span-6">
+              <div class="flex items-center">
+                <%= f.label :attachments, "Upload" %>
+                <%= f.file_field :attachments, multiple: true %>
+              </div>
+            </div>
 
             <div class="sm:col-span-6">
               <div class="flex items-center">
