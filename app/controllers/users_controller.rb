@@ -6,5 +6,4 @@ class UsersController < ApplicationController
       @chassis = @user.chassis
       @engines = @user.engines
     end
-  
 end

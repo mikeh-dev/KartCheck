@@ -11,147 +11,127 @@
 
 <% if params[:q].present? %>
   <% if @chassis.any? || @engines.any? %>
-    <div class="container mx-auto">
     <% if @chassis.any? %>
-       <% @chassis.each do |chassis| %>
-   <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-2 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-    <div>
-       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mt-10">Chassis Search Result</h2>
-      <p class="mt-4 text-gray-500"></p>
-      <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Chassis Number</dt>
-          <dd class="mt-2 text-sm text-gray-500"><%= chassis.number || engine.engine_number%></dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Make</dt>
-          <dd class="mt-2 text-sm text-gray-500"><%= chassis.make %></dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Model</dt>
-          <dd class="mt-2 text-sm text-gray-500"><% chassis.model %></dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Year</dt>
-          <dd class="mt-2 text-sm text-gray-500">2022</dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Colour</dt>
-          <dd class="mt-2 text-sm text-gray-500">Green</dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Stolen</dt>
-          <dd class="mt-2 text-sm text-gray-500">Not Stolen</dd>
-        </div>
-      </dl>
-    </div>
-    <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-      
-      <%= image_tag("20211122-_DM74079.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-      <%= image_tag("20211122-_DM74082.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-      <%= image_tag("20211122-_DM74083.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-      <%= image_tag("20211122-_DM74109.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-     
-    </div>
-  </div>
-</div>
-</div>
-<% end %>
-    <% end %>
-  <% if @engines.any? %>
-    <div class="container mx-auto">
-      <% @engines.each do |engine| %>
-      
-    
-   <div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-2 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
-    <div>
-       <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mt-10">Engine Search Result</h2>
-      <p class="mt-4 text-gray-500"></p>
-
-    
-      <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Engine Number</dt>
-          <dd class="mt-2 text-sm text-gray-500"><%= engine.engine_number %></dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Make</dt>
-          <dd class="mt-2 text-sm text-gray-500"><%= engine.make %></dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Model</dt>
-          <dd class="mt-2 text-sm text-gray-500">Junior Max</dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Year</dt>
-          <dd class="mt-2 text-sm text-gray-500">2022</dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Current Seal Number</dt>
-          <dd class="mt-2 text-sm text-gray-500">17653</dd>
-        </div>
-        <div class="border-t border-gray-200 pt-4">
-          <dt class="font-medium text-gray-900">Stolen</dt>
-          <dd class="mt-2 text-sm text-gray-500">Not Stolen</dd>
-        </div>
-      </dl>
-    </div>
-    <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
-      
-      <%= image_tag("s-l1600 (1).jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-      <%= image_tag("s-l1600 (2).jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-      <%= image_tag("s-l1600 (3).jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-      <%= image_tag("s-l1600 copy.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
-     
-    </div>
-  </div>
-</div>
-</div>
-<% end %>
-<% end %>
-  <% else %>
-    <div class="container mx-auto">
-      <div class="p-4 mb-2 text-sm text-yellow-800 rounded-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 text-center max-w-md mx-auto">
-        Sorry, no engines were found for the provided Engine Number. You can add your engine today!
-      </div>
-
-    <div class="mx-auto max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <%= image_tag("20211122-_DM74109.jpg", class: "rounded-t-lg", alt: "") %>
-    </a>
-    <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Add your Chassis or Engine..</h5>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register your account today and add Chassis' and Engines. </p>
-        <% if !user_signed_in? %>
-          <%= link_to new_user_registration_path do %>
-            <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              Register today
-              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-            </button>
-            <% end %>
-        <% else %>
-          <%= link_to user_dashboard_path do %>
-            <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              User Dashboard
-              <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-              </svg>
-            </button>
-            <% end %>
+        <% @chassis.each do |chassis| %>
+          <div class="grid max-w-2xl grid-cols-2 items-center gap-x-8 gap-y-16 px-4 py-2 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mt-10">Chassis Search Result</h2>
+            <p class="mt-4 text-gray-500"></p>
+            <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">Chassis Number</dt>
+                <dd class="mt-2 text-sm text-gray-500"><%= chassis.number || engine.engine_number%></dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">Make</dt>
+                <dd class="mt-2 text-sm text-gray-500"><%= chassis.make %></dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">Model</dt>
+                <dd class="mt-2 text-sm text-gray-500"><%= chassis.model %></dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">Year</dt>
+                <dd class="mt-2 text-sm text-gray-500">2022</dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">Colour</dt>
+                <dd class="mt-2 text-sm text-gray-500">Green</dd>
+              </div>
+              <div class="border-t border-gray-200 pt-4">
+                <dt class="font-medium text-gray-900">Stolen</dt>
+                <dd class="mt-2 text-sm text-gray-500">Not Stolen</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+            <%= image_tag("20211122-_DM74079.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+            <%= image_tag("20211122-_DM74082.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+            <%= image_tag("20211122-_DM74083.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+            <%= image_tag("20211122-_DM74109.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+          </div>
         <% end %>
-    </div>
-</div>
-</div>
+    <% end %>
+    <% if @engines.any? %>
+        <% @engines.each do |engine| %>
+          <div class="grid max-w-2xl grid-cols-2 items-center gap-x-8 gap-y-16 px-4 py-2 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+            <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center mt-10">Engine Search Result</h2>
+            <p class="mt-4 text-gray-500"></p>    
+              <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+                <div class="border-t border-gray-200 pt-4">
+                  <dt class="font-medium text-gray-900">Engine Number</dt>
+                  <dd class="mt-2 text-sm text-gray-500"><%= engine.engine_number %></dd>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                  <dt class="font-medium text-gray-900">Make</dt>
+                  <dd class="mt-2 text-sm text-gray-500"><%= engine.make %></dd>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                  <dt class="font-medium text-gray-900">Model</dt>
+                  <dd class="mt-2 text-sm text-gray-500">Junior Max</dd>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                  <dt class="font-medium text-gray-900">Year</dt>
+                  <dd class="mt-2 text-sm text-gray-500">2022</dd>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                  <dt class="font-medium text-gray-900">Current Seal Number</dt>
+                  <dd class="mt-2 text-sm text-gray-500">17653</dd>
+                </div>
+                <div class="border-t border-gray-200 pt-4">
+                  <dt class="font-medium text-gray-900">Stolen</dt>
+                  <dd class="mt-2 text-sm text-gray-500">Not Stolen</dd>
+                </div>
+              </dl>
+          </div>
+          <div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+            <%= image_tag("s-l1600 (1).jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+            <%= image_tag("s-l1600 (2).jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+            <%= image_tag("s-l1600 (3).jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+            <%= image_tag("s-l1600 copy.jpg", alt: "Top down view of walnut card tray with embedded magnets and card groove.", class: "rounded-lg bg-gray-100") %>
+          </div>
+        <% end %>
+    <% end %>
 
- 
-  <% end %>
-<% elsif params.key?(:q) %>
-  <div class="container mx-auto max-w-sm mt-8">
-    <div class="p-4 mb-2 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-yellow-300 text-center">
-      Enter a Engine or Chassis number to get started.
-    </div>
-    
-  </div>
-<% end %>
+    <% else %>
+      <div class="container mx-auto">
+        <div class="max-w-md mx-auto bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-4 mb-2 text-sm text-yellow-800 rounded-t-lg bg-yellow-50 dark:bg-gray-800 dark:text-yellow-300 text-center">
+            Sorry, no chassis' or engines were found for the number provided. You can add yours today!
+          </div>
+          <a href="#">
+            <%= image_tag("20211122-_DM74109.jpg", class: "", alt: "") %>
+          </a>
+          <div class="flex flex-col justify-center p-5">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Add your Chassis or Engine..</h5>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Register your account today and add Chassis' and Engines. </p>
+            <% if !user_signed_in? %>
+              <%= link_to new_user_registration_path do %>
+                <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Register today
+                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+                </button>
+              <% end %>
+            <% else %>
+              <%= link_to user_dashboard_path do %>
+                <button class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  User Dashboard
+                  <svg class="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                  </svg>
+                </button>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% elsif params.key?(:q) %>
+      <div class="container mx-auto max-w-sm mt-8">
+        <div class="p-4 mb-2 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-yellow-300 text-center">
+          Enter a Engine or Chassis number to get started.
+        </div>
+      </div>
+    <% end %> 

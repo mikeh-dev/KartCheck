@@ -56,7 +56,6 @@ class EnginesController < ApplicationController
   end
 
   private
-
   def engine_params
     Rails.logger.debug "Is Admin: #{current_user.admin?}"
     if current_user.admin?
@@ -66,8 +65,6 @@ class EnginesController < ApplicationController
     end
   end
   
-  
-
   def authorize_user
     engine = Engine.find(params[:id])
     unless engine.user == current_user

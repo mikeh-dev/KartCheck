@@ -8,4 +8,14 @@ class ContactMailer < ApplicationMailer
       format.html
     end
   end
+
+  def contact_email(user)
+    @user = user
+    mail(
+      to: @user.email,
+      subject: 'Contact Form Submission'
+    ) do |format|
+      format.html { render 'contact_submission' }
+    end
+  end
 end

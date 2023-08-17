@@ -1,9 +1,7 @@
 class ChassisController < ApplicationController
-
   before_action :authenticate_user!
   before_action :authorize_user, except: [:index, :new, :create]
   
-
   def index
     @chassis = current_user.chassis
   end
@@ -57,7 +55,6 @@ class ChassisController < ApplicationController
   end
 
   private
-
     def chassis_params
       params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year, :stolen).merge(user_id: current_user.id)
     end
@@ -69,8 +66,5 @@ class ChassisController < ApplicationController
         redirect_to root_path
       end
     end
-
-
-
 
 end
