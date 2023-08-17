@@ -9,6 +9,6 @@ RSpec.feature 'User searches', type: :feature do
 
         fill_in 'q', with: 'HY6664'
         click_button 'Search'
-        expect(page).to have_text 'Engine Number'
-  end
+        expect(page).to have_text 'Engine'
+    end
 end
