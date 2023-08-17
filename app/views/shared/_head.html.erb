@@ -2,7 +2,6 @@
   <title>
     <%= content_for?(:title) ? yield(:title) : "KartCheck" %>
   </title>
-
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   
@@ -11,9 +10,7 @@
   <%= javascript_include_tag "application", defer: true %>
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
-
   <%#= javascript_include_tag 'https://js.stripe.com/v3/', 'data-turbolinks-track': 'reload' %>
   <%= favicon_link_tag 'PngItem_134069.png'    %>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-
 </head>
