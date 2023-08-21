@@ -171,7 +171,7 @@ GEM
       coderay (~> 1.1)
       method_source (~> 1.0)
     public_suffix (5.0.3)
-    puma (5.6.6)
+    puma (5.6.7)
       nio4r (~> 2.0)
     racc (1.7.1)
     rack (2.2.8)
@@ -284,6 +284,7 @@ GEM
     websocket-driver (0.7.6)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.10)
@@ -310,7 +311,7 @@ DEPENDENCIES
   pg
   pg_search
   pry
-  puma (~> 5.0)
+  puma (~> 5.6.7)
   rails (~> 7.0.4, >= 7.0.4.3)
   ransack
   redis (~> 4.0)
@@ -326,6 +327,7 @@ DEPENDENCIES
   tzinfo-data
   web-console
   webdrivers
+  will_paginate
 
 RUBY VERSION
    ruby 3.1.2p20

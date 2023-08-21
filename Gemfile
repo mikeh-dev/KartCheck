@@ -5,7 +5,7 @@ ruby "3.1.2"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 gem "sprockets-rails"
 gem "pg"
-gem "puma", "~> 5.0"
+gem "puma", "~> 5.6.7"
 gem "jsbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
@@ -19,6 +19,7 @@ gem "ransack"
 gem "bundle-audit"
 gem "brakeman", require: false
 gem "simple_form"
+gem "will_paginate"
 
 
 # Add platform-specific declarations for the non-platform-specific gems
