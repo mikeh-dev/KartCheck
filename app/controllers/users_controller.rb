@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!
-  
-    def dashboard
-      @user = current_user
-      @chassis = @user.chassis
-      @engines = @user.engines
-    end
+  before_action :authenticate_user!
+
+  def dashboard
+    @user = current_user
+    @chassis = @user.chassis
+    @engines = current_user.admin? ? Engine.all : @user.engines
+  end
 end

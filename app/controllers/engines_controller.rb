@@ -1,21 +1,18 @@
 class EnginesController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user, except: [:index, :new, :create]
+  before_action :set_engine, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, only: [:show, :edit, :update, :destroy]
   
   def index
-    @engines = current_user.engines
+    @engines = current_user.admin? ? Engine.all : current_user.engines
   end
 
   def show
-    @engine = Engine.find(params[:id])
-    if @engine.user != current_user
-      redirect_to root_path, alert: "You are not authorized to view this engine."
-    end
   end
 
   def new
     @engine = Engine.new
-    @users = User.all
+    @users = User.all if current_user.admin?
   end
 
   def create
@@ -25,7 +22,7 @@ class EnginesController < ApplicationController
     else
       @engine = current_user.engines.new(engine_params)
     end
-  
+
     if @engine.save
       redirect_to engines_path, notice: "Engine created successfully."
     else
@@ -35,12 +32,10 @@ class EnginesController < ApplicationController
   end
 
   def edit
-    @users = User.all
-    @engine = Engine.find(params[:id])
+    @users = User.all if current_user.admin?
   end
 
   def update
-    @engine = Engine.find(params[:id])
     if @engine.update(engine_params)
       redirect_to user_dashboard_path, notice: "Engine updated successfully."
     else
@@ -50,7 +45,6 @@ class EnginesController < ApplicationController
   end
 
   def destroy
-    @engine = Engine.find(params[:id])
     @engine.destroy
     redirect_to user_dashboard_path, notice: "Engine deleted successfully."
   end
@@ -64,10 +58,16 @@ class EnginesController < ApplicationController
       params.require(:engine).permit(:make, :model, :engine_number, :stolen_status, :current_seal, :barrel_number, :year)
     end
   end
+
+  def set_engine
+    @engine = Engine.find(params[:id])
+  end
   
   def authorize_user
     engine = Engine.find(params[:id])
-    unless engine.user == current_user
+    if current_user.admin? || engine.user == current_user
+      return true
+    else
       flash[:alert] = 'You are not authorized to view this page.'
       redirect_to root_path
     end
