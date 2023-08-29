@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature do
-  all_users = User.all
+
   let(:admin_user) { create(:user, :admin) }
   let(:user1) { create(:user) }
   let(:user2) { create(:user, email: 'user3@example.com' ) }

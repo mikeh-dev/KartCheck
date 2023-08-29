@@ -1,21 +1,18 @@
 class ChassisController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_chassis, only: [:show, :edit, :update, :destroy]
   before_action :authorize_user, except: [:index, :new, :create]
-  
+
   def index
-    @chassis = current_user.chassis
+    @chassis = current_user.admin? ? Chassis.all : current_user.chassis
   end
 
   def show
-    @chassis = Chassis.find(params[:id])
-    if @chassis.user != current_user
-      redirect_to root_path, alert: "You are not authorized to view this chassis."
-    end
   end
 
   def new
-    @users = User.all
     @chassis = Chassis.new
+    @users = User.all if current_user.admin?
   end
 
   def create
@@ -56,7 +53,11 @@ class ChassisController < ApplicationController
 
   private
     def chassis_params
-      params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year, :stolen).merge(user_id: current_user.id)
+      if current_user.admin?
+        params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year, :stolen)
+      else
+        params.require(:chassis).permit(:name, :make, :model, :number, :colour, :notes, :year, :stolen, :user_id)
+      end
     end
 
     def authorize_user
@@ -67,4 +68,7 @@ class ChassisController < ApplicationController
       end
     end
 
+    def set_chassis
+      @chassis = Chassis.find(params[:id])
+    end
 end

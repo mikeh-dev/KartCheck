@@ -2,6 +2,7 @@ require 'sidekiq/web'
 
 Rails.application.routes.draw do
   get 'errors/not_found'
+  
   resources :chassis
     authenticate :user, lambda { |u| u.admin? } do
       mount Sidekiq::Web => '/sidekiq'
@@ -21,9 +22,8 @@ Rails.application.routes.draw do
   get '/calendar', to: 'home#calendar'
 
   post 'create_contact', to: 'home#create_contact', as: :create_contact
-
   get '/contact_form', to: 'contact_form#index'
 
   get '*path', to: 'errors#not_found', via: :all
-  
+
 end

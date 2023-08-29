@@ -1,7 +1,7 @@
 class EnginesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_engine, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user, except: [:index, :new, :create]
   
   def index
     @engines = current_user.admin? ? Engine.all : current_user.engines
@@ -51,7 +51,6 @@ class EnginesController < ApplicationController
 
   private
   def engine_params
-    Rails.logger.debug "Is Admin: #{current_user.admin?}"
     if current_user.admin?
       params.require(:engine).permit(:make, :model, :engine_number, :user_id, :stolen_status, :current_seal, :barrel_number, :year)
     else
@@ -71,6 +70,5 @@ class EnginesController < ApplicationController
       flash[:alert] = 'You are not authorized to view this page.'
       redirect_to root_path
     end
-  end
-
+  end   
 end

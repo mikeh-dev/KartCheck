@@ -19,7 +19,7 @@ gem "ransack"
 gem "bundle-audit"
 gem "brakeman", require: false
 gem "simple_form"
-gem "will_paginate"
+gem "will_paginate", "~> 4.0.0"
 
 
 # Add platform-specific declarations for the non-platform-specific gems
