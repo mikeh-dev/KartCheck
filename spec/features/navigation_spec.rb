@@ -5,7 +5,7 @@ RSpec.feature 'Navigation and Links', type: :feature do
 
   scenario 'User can navigate to the home page' do
     visit root_path
-    expect(page).to have_content('Check a Chassis or Engine')
+    expect(page).to have_content('Enter the Engine or Chassis Number you would like to check...')
     expect(page).to have_link('Sign In', href: new_user_session_path)
   end
 
