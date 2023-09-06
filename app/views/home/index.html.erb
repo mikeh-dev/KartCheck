@@ -1,7 +1,32 @@
+<section class="bg-white dark:bg-gray-900">
+    <div class="mx-auto max-w-7xl text-center py-10">
+      <h1 class="text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl text-center">KartCheck</h1>
+      <h2 class="text-base font-semibold leading-7 text-indigo-600">Protecting your investment</h2>
+    </div>
+    <div class="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-10 lg:px-6">
+        <div class="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+            <h3 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">We didn't reinvent the wheel</h2>
+            <p class="mb-4">We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need. Small enough to be simple and quick, but big enough to deliver the scope you want at the pace you need.</p>
+            <p>We are strategists, designers and developers. Innovators and problem solvers. Small enough to be simple and quick.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4 mt-8">
+            <img class="w-full rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png" alt="office content 1">
+            <img class="mt-4 w-full lg:mt-10 rounded-lg" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png" alt="office content 2">
+        </div>
+    </div>
+</section>
+
 <section class="bg-center bg-no-repeat bg-cover bg-[url('JHP_2802.JPG')] bg-gray-700 bg-blend-multiply">
-  <div class="px-4 mx-auto max-w-screen-xl text-center py-24 lg:py-56">
-    <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl">Check a Chassis or Engine</h1>
-    <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48">Enter the Engine or Chassis Number you would like to check.... </p>
+  <div class="px-4 mx-auto max-w-screen-xl text-center py-40 lg:py-40">
+    <div class="mx-auto max-w-7xl lg:text-center">
+      <h1 class="mb-8 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl text-center">Perform a Search...</h1>
+      <p class="mt-2 text-3xl font-bold tracking-tight text-gray-400 sm:text-4xl">Digital Logbook's are the future for traceability and security</p>
+      <p class="mt-6 text-lg leading-8 text-gray-300">Bringing the same technology we use for our cars into the Karting industry, helping you keep track of owner history, maintenance and deterring theft.</p>
+    </div>
+
+    <div>
+    <p class="my-8 text-lg font-bold text-gray-200 lg:text-xl sm:px-16 lg:px-48">Enter the Engine or Chassis Number you would like to check.... </p>
+    </div>
   
     <%= form_with(url: root_path, method: :get, html: { class: "w-full max-w-md mx-auto" }) do |form| %>
       <%= form.label :q, "Search", class: "mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white" %>
@@ -130,11 +155,7 @@
 
 <div class="bg-white sm:py-32 mt-8 mb-8">
   <div class="mx-auto max-w-7xl px-6 max-w-screen-xl">
-    <div class="mx-auto max-w-7xl lg:text-center">
-      <h2 class="text-base font-semibold leading-7 text-indigo-600">Protecting your investment</h2>
-      <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Digital Logbook's are the future for traceability and security</p>
-      <p class="mt-6 text-lg leading-8 text-gray-600">Bringing the same technology we use for our cars into the Karting industry, hleping you keep track of owner history, maintenance and deterring theft.</p>
-    </div>
+    
     <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
       <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
         <div class="relative pl-16">

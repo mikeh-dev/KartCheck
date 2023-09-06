@@ -2,10 +2,10 @@
   <h1 class="text-3xl font-semibold text-gray-800 text-center mb-8"><%= @user.name %>'s Dashboard</h1>
     <div class="flex justify-center mt-8 mb-8">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-        <%= link_to 'Add New Chassis', new_chassis_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-        <%= link_to 'Add New Engine', new_engine_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-        <%= link_to 'Search', root_path, class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+        <%= link_to 'Add New Chassis', new_chassis_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+        <%= link_to 'Add New Engine', new_engine_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+        <%= link_to 'Search', root_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
       </div>
     </div>
   <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex justify-center">Chassis'</h2>
@@ -20,7 +20,7 @@
           <h2 class="text-lg font-medium text-gray-900 mb-3">Chassis Number: <%= chassis.number %></h2>
           <h2 class="text-lg font-medium text-gray-900 mb-3"><%= formatted_stolen_status(chassis) %></h2>
           <div class="flex justify-end">
-            <%= link_to 'Edit', edit_chassis_path(chassis), class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mr-2' %>
+            <%= link_to 'Edit', edit_chassis_path(chassis), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mr-2' %>
             <%= link_to 'View', chassis_path(chassis), class: 'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center' %>
           </div>
         </div>
@@ -34,7 +34,7 @@
         <div class="p-6">
           <h2 class="text-lg font-medium text-gray-900 mb-3">Engine Number: <%= engine.engine_number %></h2>
           <div class="flex justify-end">
-            <%= link_to 'Edit', edit_engine_path(engine), class: 'bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mr-2' %>
+            <%= link_to 'Edit', edit_engine_path(engine), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center mr-2' %>
             <%= link_to 'View', engine_path(engine), class: 'bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center' %>
           </div>
         </div>
