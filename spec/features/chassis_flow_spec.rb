@@ -41,21 +41,21 @@ RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature d
   scenario 'User cannot view another User\'s chassis' do
     sign_in user1
     visit chassis_path(chassis)
-    expect(page).to have_content('You are not authorized to view this page.')
+    expect(page).to have_content('You are not authorized to view this Chassis.')
   end
 
   scenario 'User cannot edit another User\'s chassis' do
     sign_in user1
     visit edit_chassis_path(chassis)
-    expect(page).to have_content('You are not authorized to view this page.')
+    expect(page).to have_content('You are not authorized to view this Chassis.')
   end
 
   scenario 'User cannot delete another User\'s chassis' do
     sign_in user1
     visit chassis_path(chassis)
-    expect(page).to have_content('You are not authorized to view this page.')
+    expect(page).to have_content('You are not authorized to view this Chassis.')
     page.driver.submit :delete, chassis_path(chassis), {}
-    expect(page).to have_content('You are not authorized to view this page.')
+    expect(page).to have_content('You are not authorized to view this Chassis.')
     expect(page).to have_current_path(root_path)
     expect(Chassis.find_by(id: chassis.id)).to eq(chassis)
   end
