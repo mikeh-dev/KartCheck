@@ -62,8 +62,10 @@ class ChassisController < ApplicationController
 
     def authorize_user
       chassis = Chassis.find(params[:id])
-      unless chassis.user == current_user
-        flash[:alert] = 'You are not authorized to view this page.'
+      if current_user.admin? || chassis.user == current_user
+        return true
+      else
+        flash[:alert] = 'You are not authorized to view this Chassis.'
         redirect_to root_path
       end
     end
