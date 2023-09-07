@@ -9,11 +9,14 @@
   </div>
   <div>
 
-  
     <div class="relative z-20 px-6 mx-auto lg:px-12 max-w-lg">
       <div class="mb-4 xl:mt-8">
         <div class="mt-6 mb-4 lg:mt-0">
-          <%= link_to "Back", root_path, class: "text-gray-600 underline flex items-center hover:text-gray-700 hover:no-underline" %>
+        <% if user_signed_in? %>
+            <%= link_to "Back", user_dashboard_path, class: "text-gray-600 underline flex items-center hover:text-gray-700 hover:no-underline" %>
+        <% else %>
+            <%= link_to "Back", root_path, class: "text-gray-600 underline flex items-center hover:text-gray-700 hover:no-underline" %>
+        <% end %>
         </div>
 
         <% unless title.blank? %>

@@ -1,11 +1,11 @@
-<div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
+<div class="px-4 max-w-7xl mx-auto sm:px-6 lg:px-8 py-12">
   <h1 class="text-3xl font-semibold text-gray-800 text-center mb-8"><%= @user.name %>'s Dashboard</h1>
     <div class="flex justify-center mt-8 mb-8">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
         <%= link_to 'Edit Profile', edit_user_registration_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
         <%= link_to 'Add New Chassis', new_chassis_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
         <%= link_to 'Add New Engine', new_engine_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
-        <%= link_to 'Search', root_path, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
+        <%= link_to 'Search', "#{root_path}#search-section", data: { turbo: "false" }, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center justify-center' %>
       </div>
     </div>
   <h2 class="text-2xl font-semibold text-gray-800 mb-4 flex justify-center">Chassis'</h2>
