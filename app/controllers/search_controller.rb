@@ -7,6 +7,5 @@ class SearchController < ApplicationController
       @engines = Engine.none
       @chassis = Chassis.none
     end
-    redirect_to your_path_here(anchor: 'search-results')
   end
 end
