@@ -12,6 +12,7 @@
         <%= flash[:notice] %>
       </div>
     <% end %>
+    <%= turbo_frame_tag 'chassis_form' do %>
 
     <%= form_for @chassis do |f| %>
       <% if @chassis.errors.any? %>
@@ -27,7 +28,7 @@
     <div class="border-b border-gray-900/10 pb-12">
       <div class="mt-1 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-6">
-          <label for="make" class="block text-sm font-medium leading-6 text-gray-900">Make</label>
+          <label for="make" class="block text-sm font-medium leading-6 text-gray-900">Make <span class="text-red-600"> *</span><span class="text-xs text-gray-400">Required</span></label>
           <div class="mt-2">
             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <%= f.text_field :make, id: "make", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "e.g OTK, Kart Republic, Xenon" %>
@@ -48,7 +49,7 @@
 
 
         <div class="sm:col-span-6">
-          <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
+          <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model <span class="text-red-600"> *</span><span class="text-xs text-gray-400">Required</span></label>
           <div class="mt-2">
             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <%= f.text_field :model, id: "model", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "TonyKart, Kosmic, Expirit" %>
@@ -57,7 +58,7 @@
         </div>
 
         <div class="sm:col-span-6">
-          <label for="number" class="block text-sm font-medium leading-6 text-gray-900">Chassis Number</label>
+          <label for="number" class="block text-sm font-medium leading-6 text-gray-900">Chassis Number <span class="text-red-600"> *</span><span class="text-xs text-gray-400">Required</span></label>
           <div class="mt-2">
             <div class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
               <%= f.text_field :number, id: "number", class: "block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6", placeholder: "Enter chassis number" %>
@@ -85,7 +86,7 @@
 
         <div class="mt-2">
           <div class="flex items-center">
-            <%= f.label :stolen, class: "block text-sm text-gray-900" %>
+            <%= f.label :stolen, class: "block text-sm text-gray-900" %><span class="text-red-600"> *</span><span class="text-xs text-gray-400">Required</span>
             <%= f.select :stolen, options_for_select([['Stolen', 'stolen'], ['Not Stolen', 'not_stolen']], @chassis.stolen), {}, { id: "stolen", class: "block ml-2 w-32 py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" } %>
           </div>
         </div>
@@ -102,3 +103,4 @@
     <% end %>
   </div>
 </div>
+<% end %>

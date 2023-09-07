@@ -22,10 +22,11 @@ class ChassisController < ApplicationController
     else
       @chassis = current_user.chassis.new(chassis_params)
     end
-
+  
     if @chassis.save
       redirect_to chassis_path(@chassis), notice: "Chassis created successfully."
     else
+      @users = User.all if current_user.admin?
       flash.now[:alert] = "Chassis failed to save."
       render :new, status: :unprocessable_entity
     end
