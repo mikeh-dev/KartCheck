@@ -11,6 +11,7 @@ class HomeController < ApplicationController
       @engines = Engine.none
       @chassis = Chassis.none
     end
+
   end
 
   def about

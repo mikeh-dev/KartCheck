@@ -28,7 +28,7 @@
     <p class="my-8 text-lg font-bold text-gray-200 lg:text-xl sm:px-16 lg:px-48">Enter the Engine or Chassis Number you would like to check...</p>
     </div>
   
-    <%= form_with(url: root_path, method: :get, html: { class: "w-full max-w-md mx-auto" }) do |form| %>
+    <%= form_with(url: root_path, method: :get, html: { class: "w-full max-w-md mx-auto", data: { turbo_frame: 'search_results' } }) do |form| %>
       <%= form.label :q, "Search", class: "mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white" %>
       <div class="relative">
         <%= form.text_field :q, class: "block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-white focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: "E.g HY1234 or 961324", required: true %>
@@ -36,9 +36,10 @@
       </div>
     <% end %>
 
+    <%= turbo_frame_tag "search_results" do %>
     <% if params[:q].present? %>
       <% if @chassis.any? || @engines.any? %>
-        <div class="container mx-auto bg-white rounded-lg shadow-lg py-10 mt-10">
+        <div id="search-results" class="container mx-auto bg-white rounded-lg shadow-lg py-10 mt-10">
           <% if @chassis.any? %>
             <% @chassis.each do |chassis| %>
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl text-center">Chassis Search Result</h2>
@@ -151,6 +152,7 @@
       </div>
     <% end %>
   </div>
+  <% end %>
 </section>
 
 <div class="bg-white sm:py-32 mt-8 mb-8">
