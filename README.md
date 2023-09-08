@@ -27,7 +27,7 @@ I did use some turbo frames for linking to anchors on the homepage to enable the
 
 Most text was written in a rush as something better than placeholder text so there some spello's etc
 
-Mailers exists and work the basi contact form functions but are not styled or written with proper content.
+Mailers exists and work the basic contact form functions but are not styled or written with proper content.
 
 Test coverage probably isn't 100% but again learning Rspec as I go on this one.
 
@@ -36,5 +36,7 @@ The Devise features hasn't been edited much other than styling in the views.
 Model validation error messages could do with some styling work.
 
 The enging and chassis forms are not matching as was in the middle of restyling similair to the show view but wanted to move onto a new project which had the potentail to go live.
+
+App was live on Digital Ocean whilst in development.
 
 -----------------
