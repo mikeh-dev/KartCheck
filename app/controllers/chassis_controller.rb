@@ -42,7 +42,7 @@ class ChassisController < ApplicationController
     if @chassis.update(chassis_params)
       redirect_to chassis_path(@chassis), notice: "Chassis updated successfully."
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
