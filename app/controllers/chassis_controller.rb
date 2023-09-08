@@ -34,11 +34,9 @@ class ChassisController < ApplicationController
 
   def edit
     @users = User.all
-    @chassis = Chassis.find(params[:id])
   end
 
   def update
-    @chassis = Chassis.find(params[:id])
     if @chassis.update(chassis_params)
       redirect_to chassis_path(@chassis), notice: "Chassis updated successfully."
     else
@@ -47,7 +45,6 @@ class ChassisController < ApplicationController
   end
 
   def destroy
-    @chassis = Chassis.find(params[:id])
     @chassis.destroy
     redirect_to user_dashboard_path, notice: "Chassis deleted successfully."
   end

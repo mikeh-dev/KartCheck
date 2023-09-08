@@ -10,11 +10,12 @@ RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature d
   scenario 'Admin creates a new chassis' do
     sign_in(admin_user)
     visit new_chassis_path
-    fill_in 'Make', with: 'OTK'
-    fill_in 'Model', with: 'Kosmic'
-    fill_in 'Number', with: 'HY1234'
-    fill_in 'Year', with: '2019'
-    fill_in 'Colour', with: 'Red'
+    expect(page).to have_content('Chassis\' Details')
+    fill_in 'chassis[make]', with: 'OTK'
+    fill_in 'chassis[model]', with: 'Kosmic'
+    fill_in 'chassis[number]' , with: 'HY1234'
+    fill_in 'chassis[year]', with: '2019'
+    fill_in 'chassis[colour]', with: 'Red'
     click_button 'Save'
     expect(page).to have_content('Chassis created successfully.')
   end
@@ -22,12 +23,11 @@ RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature d
   scenario 'User creates a chassis' do
     sign_in(user1)
     visit new_chassis_path
-    fill_in 'Make', with: 'OTK'
-    fill_in 'Model', with: 'Kosmic'
-    fill_in 'Number', with: 'HY1234'
-    fill_in 'Year', with: '2019'
-    fill_in 'Colour', with: 'Red'
-
+    fill_in 'chassis[make]', with: 'OTK'
+    fill_in 'chassis[model]', with: 'Kosmic'
+    fill_in 'chassis[number]' , with: 'HY1234'
+    fill_in 'chassis[year]', with: '2019'
+    fill_in 'chassis[colour]', with: 'Red'
     click_button 'Save'
     expect(page).to have_content('Chassis created successfully.')
   end
@@ -63,7 +63,7 @@ RSpec.describe 'User Creating, Updating, and Deleting Chassis', type: :feature d
   scenario 'User can edit their own chassis' do
     sign_in user2
     visit edit_chassis_path(chassis)
-    fill_in 'Make', with: 'OTK'
+    fill_in 'chassis[make]', with: 'OTK'
     click_button 'Save'
     expect(page).to have_content('Chassis updated successfully.')
   end

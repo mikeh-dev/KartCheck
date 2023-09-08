@@ -1,1 +1,3 @@
-<%= render partial: "chassis/chassis_form", locals: { engine: @chassis } %>
+<% content_for :title, 'Edit Chassis' %>
+
+<%= render partial: "chassis/chassis_form", locals: { chassis: @chassis } %>
